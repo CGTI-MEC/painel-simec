@@ -381,7 +381,7 @@ BA	Ipiaú	2913903	Municipal	Não Iniciado	Em análise do MEC
 BA	Ipirá	2914000	Municipal	Em análise do MEC	Em análise do MEC
 BA	Ipupiara	2914109	Municipal	Em análise do MEC	Em preenchimento
 BA	Irajuba	2914208	Municipal	Em análise do MEC	Em análise do MEC
-BA	Iramaia	2914307	Municipal	Em preenchimento	Em preenchimento
+BA	Iramaia	2914307	Municipal	Em preenchimento	Em análise do MEC
 BA	Iraquara	2914406	Municipal	Em análise do MEC	Em análise do MEC
 BA	Irará	2914505	Municipal	Em análise do MEC	Em análise do MEC
 BA	Irecê	2914604	Municipal	Em preenchimento	Em análise do MEC
@@ -1123,7 +1123,7 @@ GO	Serranópolis	5220504	Municipal	Não Iniciado	Em análise do MEC
 GO	Silvânia	5220603	Municipal	Em análise do MEC	Em análise do MEC
 GO	Simolândia	5220686	Municipal	Não Iniciado	Em análise do MEC
 GO	Sítio d'Abadia	5220702	Municipal	Em análise do MEC	Em análise do MEC
-GO	Taquaral de Goiás	5221007	Municipal	Em preenchimento	Não iniciado
+GO	Taquaral de Goiás	5221007	Municipal	Em preenchimento	Em preenchimento
 GO	Teresina de Goiás	5221080	Municipal	Em análise do MEC	Em análise do MEC
 GO	Terezópolis de Goiás	5221197	Municipal	Em análise do MEC	Em análise do MEC
 GO	Três Ranchos	5221304	Municipal	Em análise do MEC	Em análise do MEC
@@ -1376,7 +1376,7 @@ MG	Alagoa	3101300	Municipal	Em análise do MEC	Em análise do MEC
 MG	Albertina	3101409	Municipal	Em análise do MEC	Em análise do MEC
 MG	Além Paraíba	3101508	Municipal	Em análise do MEC	Em análise do MEC
 MG	Alfenas	3101607	Municipal	Não Iniciado	Em análise do MEC
-MG	Alfredo Vasconcelos	3101631	Municipal	Não Iniciado	Em preenchimento
+MG	Alfredo Vasconcelos	3101631	Municipal	Não Iniciado	Em análise do MEC
 MG	Almenara	3101706	Municipal	Não Iniciado	Em análise do MEC
 MG	Alpercata	3101805	Municipal	Em análise do MEC	Em análise do MEC
 MG	Alpinópolis	3101904	Municipal	Em análise do MEC	Em análise do MEC
@@ -1909,7 +1909,7 @@ MG	Paiva	3146602	Municipal	Em análise do MEC	Em análise do MEC
 MG	Palma	3146701	Municipal	Em análise do MEC	Em análise do MEC
 MG	Palmópolis	3146750	Municipal	Em preenchimento	Em análise do MEC
 MG	Papagaios	3146909	Municipal	Em análise do MEC	Em análise do MEC
-MG	Paracatu	3147006	Municipal	Em análise do MEC	Não iniciado
+MG	Paracatu	3147006	Municipal	Em análise do MEC	Em análise do MEC
 MG	Pará de Minas	3147105	Municipal	Em análise do MEC	Em preenchimento
 MG	Paraguaçu	3147204	Municipal	Em análise do MEC	Em análise do MEC
 MG	Paraisópolis	3147303	Municipal	Em análise do MEC	Em análise do MEC
@@ -2011,7 +2011,7 @@ MG	Rio Piracicaba	3155702	Municipal	Em análise do MEC	Em análise do MEC
 MG	Rio Pomba	3155801	Municipal	Em análise do MEC	Em análise do MEC
 MG	Rio Preto	3155900	Municipal	Em análise do MEC	Em análise do MEC
 MG	Rio Vermelho	3156007	Municipal	Em análise do MEC	Não iniciado
-MG	Ritápolis	3156106	Municipal	Não Iniciado	Não iniciado
+MG	Ritápolis	3156106	Municipal	Não Iniciado	Em análise do MEC
 MG	Rochedo de Minas	3156205	Municipal	Em análise do MEC	Em análise do MEC
 MG	Rodeiro	3156304	Municipal	Em análise do MEC	Em análise do MEC
 MG	Romaria	3156403	Municipal	Em análise do MEC	Não iniciado
@@ -2027,7 +2027,7 @@ MG	Santa Bárbara	3157203	Municipal	Em análise do MEC	Em análise do MEC
 MG	Santa Bárbara do Leste	3157252	Municipal	Em preenchimento	Em análise do MEC
 MG	Santa Bárbara do Monte Verde	3157278	Municipal	Em análise do MEC	Em análise do MEC
 MG	Santa Bárbara do Tugúrio	3157302	Municipal	Em análise do MEC	Em análise do MEC
-MG	Santa Cruz de Minas	3157336	Municipal	Não Iniciado	Não iniciado
+MG	Santa Cruz de Minas	3157336	Municipal	Não Iniciado	Em análise do MEC
 MG	Santa Cruz de Salinas	3157377	Municipal	Não Iniciado	Em análise do MEC
 MG	Santa Cruz do Escalvado	3157401	Municipal	Em análise do MEC	Em análise do MEC
 MG	Santa Efigênia de Minas	3157500	Municipal	Não Iniciado	Em preenchimento
@@ -2444,7 +2444,7 @@ PA	Afuá	1500305	Municipal	Em análise do MEC	Não iniciado
 PA	Água Azul do Norte	1500347	Municipal	Em análise do MEC	Em análise do MEC
 PA	Alenquer	1500404	Municipal	Em análise do MEC	Em análise do MEC
 PA	Almeirim	1500503	Municipal	Não Iniciado	Em análise do MEC
-PA	Altamira	1500602	Municipal	Em preenchimento	Em preenchimento
+PA	Altamira	1500602	Municipal	Em preenchimento	Em análise do MEC
 PA	Anajás	1500701	Municipal	Em análise do MEC	Em análise do MEC
 PA	Ananindeua	1500800	Municipal	Em análise do MEC	Em análise do MEC
 PA	Anapu	1500859	Municipal	Em preenchimento	Em análise do MEC
@@ -2911,7 +2911,7 @@ PE	Lajedo	2608800	Municipal	Não Iniciado	Em análise do MEC
 PE	Limoeiro	2608909	Municipal	Em análise do MEC	Não iniciado
 PE	Macaparana	2609006	Municipal	Em preenchimento	Em análise do MEC
 PE	Machados	2609105	Municipal	Em análise do MEC	Em análise do MEC
-PE	Manari	2609154	Municipal	Em análise do MEC	Em preenchimento
+PE	Manari	2609154	Municipal	Em análise do MEC	Em análise do MEC
 PE	Maraial	2609204	Municipal	Em análise do MEC	Em análise do MEC
 PE	Mirandiba	2609303	Municipal	Em análise do MEC	Em análise do MEC
 PE	Moreno	2609402	Municipal	Em análise do MEC	Em análise do MEC
@@ -3925,7 +3925,7 @@ RO	Primavera de Rondônia	1101476	Municipal	Não Iniciado	Não iniciado
 RO	São Felipe D Oeste	1101484	Municipal	Em análise do MEC	Em análise do MEC
 RO	São Francisco do Guaporé	1101492	Municipal	Não Iniciado	Em análise do MEC
 RO	Seringueiras	1101500	Municipal	Não Iniciado	Em análise do MEC
-RO	Teixeirópolis	1101559	Municipal	Não Iniciado	Não iniciado
+RO	Teixeirópolis	1101559	Municipal	Não Iniciado	Em preenchimento
 RO	Theobroma	1101609	Municipal	Em análise do MEC	Em análise do MEC
 RO	Urupá	1101708	Municipal	Não Iniciado	Não iniciado
 RO	Vale do Anari	1101757	Municipal	Não Iniciado	Em preenchimento
@@ -4206,7 +4206,7 @@ RS	Montauri	4312351	Municipal	Não Iniciado	Em análise do MEC
 RS	Monte Alegre dos Campos	4312377	Municipal	Em preenchimento	Em análise do MEC
 RS	Monte Belo do Sul	4312385	Municipal	Em análise do MEC	Em análise do MEC
 RS	Montenegro	4312401	Municipal	Em análise do MEC	Em análise do MEC
-RS	Mormaço	4312427	Municipal	Em análise do MEC	Em preenchimento
+RS	Mormaço	4312427	Municipal	Em análise do MEC	Em análise do MEC
 RS	Morrinhos do Sul	4312443	Municipal	Em análise do MEC	Em análise do MEC
 RS	Morro Redondo	4312450	Municipal	Não Iniciado	Em preenchimento
 RS	Morro Reuter	4312476	Municipal	Em análise do MEC	Em análise do MEC
@@ -4671,7 +4671,7 @@ SC	Rodeio	4215109	Municipal	Em preenchimento	Em análise do MEC
 SC	Romelândia	4215208	Municipal	Em preenchimento	Em análise do MEC
 SC	Salete	4215307	Municipal	Em análise do MEC	Em análise do MEC
 SC	Saltinho	4215356	Municipal	Não Iniciado	Não iniciado
-SC	Salto Veloso	4215406	Municipal	Em análise do MEC	Em preenchimento
+SC	Salto Veloso	4215406	Municipal	Em análise do MEC	Em análise do MEC
 SC	Sangão	4215455	Municipal	Em análise do MEC	Em análise do MEC
 SC	Santa Cecília	4215505	Municipal	Em análise do MEC	Em análise do MEC
 SC	Santa Helena	4215554	Municipal	Em análise do MEC	Em preenchimento
@@ -4903,7 +4903,7 @@ SP	Boracéia	3507308	Municipal	Não Iniciado	Não iniciado
 SP	Borborema	3507407	Municipal	Em análise do MEC	Em análise do MEC
 SP	Borebi	3507456	Municipal	Não Iniciado	Não iniciado
 SP	Botucatu	3507506	Municipal	Em análise do MEC	Em análise do MEC
-SP	Bragança Paulista	3507605	Municipal	Em análise do MEC	Não iniciado
+SP	Bragança Paulista	3507605	Municipal	Em análise do MEC	Em preenchimento
 SP	Braúna	3507704	Municipal	Não Iniciado	Não iniciado
 SP	Brejo Alegre	3507753	Municipal	Não Iniciado	Não iniciado
 SP	Brodowski	3507803	Municipal	Em análise do MEC	Em análise do MEC
@@ -4984,7 +4984,7 @@ SP	Eldorado	3514809	Municipal	Não Iniciado	Em análise do MEC
 SP	Elias Fausto	3514908	Municipal	Não Iniciado	Não iniciado
 SP	Elisiário	3514924	Municipal	Não Iniciado	Em preenchimento
 SP	Embaúba	3514957	Municipal	Em preenchimento	Não iniciado
-SP	Embu das Artes	3515004	Municipal	Em análise do MEC	Em preenchimento
+SP	Embu das Artes	3515004	Municipal	Em análise do MEC	Em análise do MEC
 SP	Embu-Guaçu	3515103	Municipal	Em análise do MEC	Em análise do MEC
 SP	Emilianópolis	3515129	Municipal	Não Iniciado	Em análise do MEC
 SP	Engenheiro Coelho	3515152	Municipal	Não Iniciado	Não iniciado

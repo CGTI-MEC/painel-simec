@@ -5,7 +5,7 @@ PRAZO_PIEC: 06/05/2026
 ##FIMCONFIG
 ID	UF	Município	Código IBGE	Esfera	Status Simec	Status Simec Piec
 AC	AC			Estadual	Em preenchimento	Em análise do MEC
-ACAcrelândia	AC	Acrelândia	1200013	Municipal	Não Iniciado	Em análise do MEC
+ACAcrelândia	AC	Acrelândia	1200013	Municipal	Em preenchimento	Em análise do MEC
 ACAssis Brasil	AC	Assis Brasil	1200054	Municipal	Não Iniciado	Em análise do MEC
 ACBrasiléia	AC	Brasiléia	1200104	Municipal	Não Iniciado	Em análise do MEC
 ACBujari	AC	Bujari	1200138	Municipal	Não Iniciado	Em análise do MEC
@@ -17,7 +17,7 @@ ACJordão	AC	Jordão	1200328	Municipal	Em preenchimento	Em análise do MEC
 ACMâncio Lima	AC	Mâncio Lima	1200336	Municipal	Em análise do MEC	Em análise do MEC
 ACManoel Urbano	AC	Manoel Urbano	1200344	Municipal	Não Iniciado	Em análise do MEC
 ACMarechal Thaumaturgo	AC	Marechal Thaumaturgo	1200351	Municipal	Em preenchimento	Em análise do MEC
-ACPlácido de Castro	AC	Plácido de Castro	1200385	Municipal	Em preenchimento	Em análise do MEC
+ACPlácido de Castro	AC	Plácido de Castro	1200385	Municipal	Em análise do MEC	Em análise do MEC
 ACPorto Walter	AC	Porto Walter	1200393	Municipal	Em análise do MEC	Em análise do MEC
 ACRio Branco	AC	Rio Branco	1200401	Municipal	Não Iniciado	Em análise do MEC
 ACRodrigues Alves	AC	Rodrigues Alves	1200427	Municipal	Em análise do MEC	Em análise do MEC
@@ -195,7 +195,7 @@ AMUrucará	AM	Urucará	1304302	Municipal	Não Iniciado	Em análise do MEC
 AMUrucurituba	AM	Urucurituba	1304401	Municipal	Em análise do MEC	Em análise do MEC
 AP	AP			Estadual	Não Iniciado	Em análise do MEC
 APSerra do Navio	AP	Serra do Navio	1600055	Municipal	Em análise do MEC	Em análise do MEC
-APAmapá	AP	Amapá	1600105	Municipal	Em preenchimento	Em análise do MEC
+APAmapá	AP	Amapá	1600105	Municipal	Em análise do MEC	Em análise do MEC
 APPedra Branca do Amapari	AP	Pedra Branca do Amapari	1600154	Municipal	Em análise do MEC	Em análise do MEC
 APCalçoene	AP	Calçoene	1600204	Municipal	Em análise do MEC	Em análise do MEC
 APCutias	AP	Cutias	1600212	Municipal	Em análise do MEC	Em análise do MEC
@@ -664,7 +664,7 @@ CECamocim	CE	Camocim	2302602	Municipal	Em análise do MEC	Em análise do MEC
 CECampos Sales	CE	Campos Sales	2302701	Municipal	Em análise do MEC	Em análise do MEC
 CECanindé	CE	Canindé	2302800	Municipal	Não Iniciado	Em análise do MEC
 CECapistrano	CE	Capistrano	2302909	Municipal	Em análise do MEC	Em análise do MEC
-CECaridade	CE	Caridade	2303006	Municipal	Não Iniciado	Em análise do MEC
+CECaridade	CE	Caridade	2303006	Municipal	Em preenchimento	Em análise do MEC
 CECariré	CE	Cariré	2303105	Municipal	Em análise do MEC	Em análise do MEC
 CECaririaçu	CE	Caririaçu	2303204	Municipal	Em análise do MEC	Em análise do MEC
 CECariús	CE	Cariús	2303303	Municipal	Em análise do MEC	Em análise do MEC
@@ -839,7 +839,7 @@ ESConceição da Barra	ES	Conceição da Barra	3201605	Municipal	Em análise do 
 ESConceição do Castelo	ES	Conceição do Castelo	3201704	Municipal	Em análise do MEC	Em análise do MEC
 ESDivino de São Lourenço	ES	Divino de São Lourenço	3201803	Municipal	Não Iniciado	Em análise do MEC
 ESDomingos Martins	ES	Domingos Martins	3201902	Municipal	Em análise do MEC	Em análise do MEC
-ESDores do Rio Preto	ES	Dores do Rio Preto	3202009	Municipal	Não Iniciado	Em análise do MEC
+ESDores do Rio Preto	ES	Dores do Rio Preto	3202009	Municipal	Em preenchimento	Em análise do MEC
 ESEcoporanga	ES	Ecoporanga	3202108	Municipal	Em análise do MEC	Em análise do MEC
 ESFundão	ES	Fundão	3202207	Municipal	Em análise do MEC	Em análise do MEC
 ESGovernador Lindenberg	ES	Governador Lindenberg	3202256	Municipal	Em análise do MEC	Em análise do MEC
@@ -1141,7 +1141,7 @@ GOVianópolis	GO	Vianópolis	5222005	Municipal	Em preenchimento	Em análise do M
 GOVicentinópolis	GO	Vicentinópolis	5222054	Municipal	Em análise do MEC	Em análise do MEC
 GOVila Boa	GO	Vila Boa	5222203	Municipal	Em análise do MEC	Em análise do MEC
 GOVila Propício	GO	Vila Propício	5222302	Municipal	Em análise do MEC	Em análise do MEC
-MA	MA			Estadual	Em preenchimento	Em análise do MEC
+MA	MA			Estadual	Em análise do MEC	Em análise do MEC
 MAAçailândia	MA	Açailândia	2100055	Municipal	Em análise do MEC	Em análise do MEC
 MAAfonso Cunha	MA	Afonso Cunha	2100105	Municipal	Em preenchimento	Em análise do MEC
 MAÁgua Doce do Maranhão	MA	Água Doce do Maranhão	2100154	Municipal	Não Iniciado	Em análise do MEC
@@ -1254,7 +1254,7 @@ MAMagalhães de Almeida	MA	Magalhães de Almeida	2106300	Municipal	Em análise d
 MAMaracaçumé	MA	Maracaçumé	2106326	Municipal	Não Iniciado	Em análise do MEC
 MAMarajá do Sena	MA	Marajá do Sena	2106359	Municipal	Não Iniciado	Em análise do MEC
 MAMaranhãozinho	MA	Maranhãozinho	2106375	Municipal	Em preenchimento	Em análise do MEC
-MAMata Roma	MA	Mata Roma	2106409	Municipal	Não Iniciado	Em análise do MEC
+MAMata Roma	MA	Mata Roma	2106409	Municipal	Em preenchimento	Em análise do MEC
 MAMatinha	MA	Matinha	2106508	Municipal	Em análise do MEC	Em análise do MEC
 MAMatões	MA	Matões	2106607	Municipal	Em análise do MEC	Em análise do MEC
 MAMatões do Norte	MA	Matões do Norte	2106631	Municipal	Em análise do MEC	Em análise do MEC
@@ -1284,7 +1284,7 @@ MAPedro do Rosário	MA	Pedro do Rosário	2108256	Municipal	Em análise do MEC	Em
 MAPenalva	MA	Penalva	2108306	Municipal	Não Iniciado	Em análise do MEC
 MAPeri Mirim	MA	Peri Mirim	2108405	Municipal	Em preenchimento	Em análise do MEC
 MAPeritoró	MA	Peritoró	2108454	Municipal	Em análise do MEC	Em análise do MEC
-MAPindaré-Mirim	MA	Pindaré-Mirim	2108504	Municipal	Em preenchimento	Em análise do MEC
+MAPindaré-Mirim	MA	Pindaré-Mirim	2108504	Municipal	Em análise do MEC	Em análise do MEC
 MAPinheiro	MA	Pinheiro	2108603	Municipal	Em preenchimento	Em análise do MEC
 MAPio XII	MA	Pio XII	2108702	Municipal	Em preenchimento	Em análise do MEC
 MAPirapemas	MA	Pirapemas	2108801	Municipal	Em análise do MEC	Em análise do MEC
@@ -1302,7 +1302,7 @@ MARiachão	MA	Riachão	2109502	Municipal	Em análise do MEC	Em análise do MEC
 MARibamar Fiquene	MA	Ribamar Fiquene	2109551	Municipal	Em preenchimento	Em análise do MEC
 MARosário	MA	Rosário	2109601	Municipal	Em preenchimento	Em análise do MEC
 MASambaíba	MA	Sambaíba	2109700	Municipal	Em análise do MEC	Em análise do MEC
-MASanta Filomena do Maranhão	MA	Santa Filomena do Maranhão	2109759	Municipal	Não Iniciado	Em análise do MEC
+MASanta Filomena do Maranhão	MA	Santa Filomena do Maranhão	2109759	Municipal	Em preenchimento	Em análise do MEC
 MASanta Helena	MA	Santa Helena	2109809	Municipal	Em preenchimento	Em análise do MEC
 MASanta Inês	MA	Santa Inês	2109908	Municipal	Em análise do MEC	Em análise do MEC
 MASanta Luzia	MA	Santa Luzia	2110005	Municipal	Em análise do MEC	Em análise do MEC
@@ -1645,7 +1645,7 @@ MGFaria Lemos	MG	Faria Lemos	3125309	Municipal	Em análise do MEC	Em análise do
 MGFelício dos Santos	MG	Felício dos Santos	3125408	Municipal	Não Iniciado	Em análise do MEC
 MGSão Gonçalo do Rio Preto	MG	São Gonçalo do Rio Preto	3125507	Municipal	Em análise do MEC	Em análise do MEC
 MGFelisburgo	MG	Felisburgo	3125606	Municipal	Em análise do MEC	Em análise do MEC
-MGFelixlândia	MG	Felixlândia	3125705	Municipal	Não Iniciado	Em análise do MEC
+MGFelixlândia	MG	Felixlândia	3125705	Municipal	Em análise do MEC	Em análise do MEC
 MGFernandes Tourinho	MG	Fernandes Tourinho	3125804	Municipal	Em análise do MEC	Em análise do MEC
 MGFerros	MG	Ferros	3125903	Municipal	Não Iniciado	Em análise do MEC
 MGFervedouro	MG	Fervedouro	3125952	Municipal	Em análise do MEC	Em análise do MEC
@@ -1666,7 +1666,7 @@ MGFronteira dos Vales	MG	Fronteira dos Vales	3127057	Municipal	Em análise do ME
 MGFruta de Leite	MG	Fruta de Leite	3127073	Municipal	Em análise do MEC	Em análise do MEC
 MGFrutal	MG	Frutal	3127107	Municipal	Em análise do MEC	Em análise do MEC
 MGFunilândia	MG	Funilândia	3127206	Municipal	Em preenchimento	Em análise do MEC
-MGGaliléia	MG	Galiléia	3127305	Municipal	Em preenchimento	Em análise do MEC
+MGGaliléia	MG	Galiléia	3127305	Municipal	Em análise do MEC	Em análise do MEC
 MGGameleiras	MG	Gameleiras	3127339	Municipal	Em análise do MEC	Em análise do MEC
 MGGlaucilândia	MG	Glaucilândia	3127354	Municipal	Em análise do MEC	Em análise do MEC
 MGGoiabeira	MG	Goiabeira	3127370	Municipal	Em análise do MEC	Em análise do MEC
@@ -1843,7 +1843,7 @@ MGMendes Pimentel	MG	Mendes Pimentel	3141504	Municipal	Não Iniciado	Em análise
 MGMercês	MG	Mercês	3141603	Municipal	Em análise do MEC	Em análise do MEC
 MGMesquita	MG	Mesquita	3141702	Municipal	Em análise do MEC	Em análise do MEC
 MGMinas Novas	MG	Minas Novas	3141801	Municipal	Em análise do MEC	Em análise do MEC
-MGMinduri	MG	Minduri	3141900	Municipal	Em preenchimento	Em preenchimento
+MGMinduri	MG	Minduri	3141900	Municipal	Em análise do MEC	Em preenchimento
 MGMirabela	MG	Mirabela	3142007	Municipal	Em análise do MEC	Em análise do MEC
 MGMiradouro	MG	Miradouro	3142106	Municipal	Em análise do MEC	Em análise do MEC
 MGMiraí	MG	Miraí	3142205	Municipal	Em análise do MEC	Em análise do MEC
@@ -1877,7 +1877,7 @@ MGNatércia	MG	Natércia	3144409	Municipal	Em análise do MEC	Em análise do MEC
 MGNazareno	MG	Nazareno	3144508	Municipal	Em análise do MEC	Em análise do MEC
 MGNepomuceno	MG	Nepomuceno	3144607	Municipal	Em análise do MEC	Em análise do MEC
 MGNinheira	MG	Ninheira	3144656	Municipal	Em análise do MEC	Em análise do MEC
-MGNova Belém	MG	Nova Belém	3144672	Municipal	Não Iniciado	Em análise do MEC
+MGNova Belém	MG	Nova Belém	3144672	Municipal	Em análise do MEC	Em análise do MEC
 MGNova Era	MG	Nova Era	3144706	Municipal	Em análise do MEC	Em análise do MEC
 MGNova Lima	MG	Nova Lima	3144805	Municipal	Em análise do MEC	Em análise do MEC
 MGNova Módica	MG	Nova Módica	3144904	Municipal	Em análise do MEC	Em análise do MEC
@@ -1935,7 +1935,7 @@ MGPedra Dourada	MG	Pedra Dourada	3149002	Municipal	Em análise do MEC	Em anális
 MGPedralva	MG	Pedralva	3149101	Municipal	Em análise do MEC	Em análise do MEC
 MGPedras de Maria da Cruz	MG	Pedras de Maria da Cruz	3149150	Municipal	Não Iniciado	Em análise do MEC
 MGPedrinópolis	MG	Pedrinópolis	3149200	Municipal	Não Iniciado	Em análise do MEC
-MGPedro Leopoldo	MG	Pedro Leopoldo	3149309	Municipal	Não Iniciado	Em análise do MEC
+MGPedro Leopoldo	MG	Pedro Leopoldo	3149309	Municipal	Em análise do MEC	Em análise do MEC
 MGPedro Teixeira	MG	Pedro Teixeira	3149408	Municipal	Em análise do MEC	Em análise do MEC
 MGPequeri	MG	Pequeri	3149507	Municipal	Em análise do MEC	Em análise do MEC
 MGPequi	MG	Pequi	3149606	Municipal	Em análise do MEC	Em análise do MEC
@@ -1962,7 +1962,7 @@ MGPirapora	MG	Pirapora	3151206	Municipal	Em análise do MEC	Em análise do MEC
 MGPiraúba	MG	Piraúba	3151305	Municipal	Em análise do MEC	Em análise do MEC
 MGPitangui	MG	Pitangui	3151404	Municipal	Em análise do MEC	Em análise do MEC
 MGPiumhi	MG	Piumhi	3151503	Municipal	Em análise do MEC	Em análise do MEC
-MGPlanura	MG	Planura	3151602	Municipal	Em preenchimento	Em análise do MEC
+MGPlanura	MG	Planura	3151602	Municipal	Em análise do MEC	Em análise do MEC
 MGPoço Fundo	MG	Poço Fundo	3151701	Municipal	Em análise do MEC	Em análise do MEC
 MGPoços de Caldas	MG	Poços de Caldas	3151800	Municipal	Em análise do MEC	Em análise do MEC
 MGPocrane	MG	Pocrane	3151909	Municipal	Em análise do MEC	Em análise do MEC
@@ -2180,7 +2180,7 @@ MGTupaciguara	MG	Tupaciguara	3169604	Municipal	Não Iniciado	Em análise do MEC
 MGTurmalina	MG	Turmalina	3169703	Municipal	Em análise do MEC	Em análise do MEC
 MGTurvolândia	MG	Turvolândia	3169802	Municipal	Em análise do MEC	Em análise do MEC
 MGUbá	MG	Ubá	3169901	Municipal	Em análise do MEC	Em análise do MEC
-MGUbaí	MG	Ubaí	3170008	Municipal	Em preenchimento	Em análise do MEC
+MGUbaí	MG	Ubaí	3170008	Municipal	Em análise do MEC	Em análise do MEC
 MGUbaporanga	MG	Ubaporanga	3170057	Municipal	Em análise do MEC	Em análise do MEC
 MGUberaba	MG	Uberaba	3170107	Municipal	Em análise do MEC	Em análise do MEC
 MGUberlândia	MG	Uberlândia	3170206	Municipal	Em análise do MEC	Em análise do MEC
@@ -2228,7 +2228,7 @@ MSBandeirantes	MS	Bandeirantes	5001508	Municipal	Em análise do MEC	Em análise 
 MSBataguassu	MS	Bataguassu	5001904	Municipal	Em análise do MEC	Em análise do MEC
 MSBatayporã	MS	Batayporã	5002001	Municipal	Em análise do MEC	Em análise do MEC
 MSBela Vista	MS	Bela Vista	5002100	Municipal	Em análise do MEC	Em análise do MEC
-MSBodoquena	MS	Bodoquena	5002159	Municipal	Em preenchimento	Em análise do MEC
+MSBodoquena	MS	Bodoquena	5002159	Municipal	Em análise do MEC	Em análise do MEC
 MSBonito	MS	Bonito	5002209	Municipal	Em análise do MEC	Em análise do MEC
 MSBrasilândia	MS	Brasilândia	5002308	Municipal	Em análise do MEC	Em análise do MEC
 MSCaarapó	MS	Caarapó	5002407	Municipal	Em análise do MEC	Em análise do MEC
@@ -2335,7 +2335,7 @@ MTCotriguaçu	MT	Cotriguaçu	5103379	Municipal	Em preenchimento	Em análise do M
 MTCuiabá	MT	Cuiabá	5103403	Municipal	Em preenchimento	Em análise do MEC
 MTCurvelândia	MT	Curvelândia	5103437	Municipal	Em análise do MEC	Em análise do MEC
 MTDenise	MT	Denise	5103452	Municipal	Não Iniciado	Em análise do MEC
-MTDiamantino	MT	Diamantino	5103502	Municipal	Em preenchimento	Em análise do MEC
+MTDiamantino	MT	Diamantino	5103502	Municipal	Em análise do MEC	Em análise do MEC
 MTDom Aquino	MT	Dom Aquino	5103601	Municipal	Em análise do MEC	Em análise do MEC
 MTFeliz Natal	MT	Feliz Natal	5103700	Municipal	Em análise do MEC	Em análise do MEC
 MTFigueirópolis D'Oeste	MT	Figueirópolis D'Oeste	5103809	Municipal	Em análise do MEC	Em análise do MEC
@@ -2396,7 +2396,7 @@ MTPorto Estrela	MT	Porto Estrela	5106851	Municipal	Em preenchimento	Em análise 
 MTPoxoréu	MT	Poxoréu	5107008	Municipal	Em preenchimento	Em análise do MEC
 MTPrimavera do Leste	MT	Primavera do Leste	5107040	Municipal	Em preenchimento	Em análise do MEC
 MTQuerência	MT	Querência	5107065	Municipal	Em análise do MEC	Em análise do MEC
-MTSão José dos Quatro Marcos	MT	São José dos Quatro Marcos	5107107	Municipal	Não Iniciado	Em análise do MEC
+MTSão José dos Quatro Marcos	MT	São José dos Quatro Marcos	5107107	Municipal	Em preenchimento	Em análise do MEC
 MTReserva do Cabaçal	MT	Reserva do Cabaçal	5107156	Municipal	Em análise do MEC	Em análise do MEC
 MTRibeirão Cascalheira	MT	Ribeirão Cascalheira	5107180	Municipal	Em análise do MEC	Em análise do MEC
 MTRibeirãozinho	MT	Ribeirãozinho	5107198	Municipal	Em análise do MEC	Em análise do MEC
@@ -2435,7 +2435,7 @@ MTVila Rica	MT	Vila Rica	5108600	Municipal	Em análise do MEC	Em análise do MEC
 MTNova Guarita	MT	Nova Guarita	5108808	Municipal	Em análise do MEC	Em análise do MEC
 MTNova Marilândia	MT	Nova Marilândia	5108857	Municipal	Em análise do MEC	Em análise do MEC
 MTNova Maringá	MT	Nova Maringá	5108907	Municipal	Em análise do MEC	Em análise do MEC
-MTNova Monte Verde	MT	Nova Monte Verde	5108956	Municipal	Não Iniciado	Em análise do MEC
+MTNova Monte Verde	MT	Nova Monte Verde	5108956	Municipal	Em análise do MEC	Em análise do MEC
 PA	PA			Estadual	Em preenchimento	Em análise do MEC
 PAAbaetetuba	PA	Abaetetuba	1500107	Municipal	Não Iniciado	Em análise do MEC
 PAAbel Figueiredo	PA	Abel Figueiredo	1500131	Municipal	Em análise do MEC	Em análise do MEC
@@ -2443,7 +2443,7 @@ PAAcará	PA	Acará	1500206	Municipal	Em preenchimento	Em análise do MEC
 PAAfuá	PA	Afuá	1500305	Municipal	Em análise do MEC	Em análise do MEC
 PAÁgua Azul do Norte	PA	Água Azul do Norte	1500347	Municipal	Em análise do MEC	Em análise do MEC
 PAAlenquer	PA	Alenquer	1500404	Municipal	Em análise do MEC	Em análise do MEC
-PAAlmeirim	PA	Almeirim	1500503	Municipal	Não Iniciado	Em análise do MEC
+PAAlmeirim	PA	Almeirim	1500503	Municipal	Em preenchimento	Em análise do MEC
 PAAltamira	PA	Altamira	1500602	Municipal	Em preenchimento	Em análise do MEC
 PAAnajás	PA	Anajás	1500701	Municipal	Em análise do MEC	Em análise do MEC
 PAAnanindeua	PA	Ananindeua	1500800	Municipal	Em análise do MEC	Em análise do MEC
@@ -2497,7 +2497,7 @@ PAIrituia	PA	Irituia	1503507	Municipal	Em análise do MEC	Em análise do MEC
 PAItaituba	PA	Itaituba	1503606	Municipal	Em análise do MEC	Em análise do MEC
 PAItupiranga	PA	Itupiranga	1503705	Municipal	Em análise do MEC	Em análise do MEC
 PAJacareacanga	PA	Jacareacanga	1503754	Municipal	Em análise do MEC	Em análise do MEC
-PAJacundá	PA	Jacundá	1503804	Municipal	Em preenchimento	Em análise do MEC
+PAJacundá	PA	Jacundá	1503804	Municipal	Em análise do MEC	Em análise do MEC
 PAJuruti	PA	Juruti	1503903	Municipal	Em análise do MEC	Em análise do MEC
 PALimoeiro do Ajuru	PA	Limoeiro do Ajuru	1504000	Municipal	Em análise do MEC	Em análise do MEC
 PAMãe do Rio	PA	Mãe do Rio	1504059	Municipal	Em preenchimento	Em análise do MEC
@@ -2703,7 +2703,7 @@ PBMatinhas	PB	Matinhas	2509339	Municipal	Em análise do MEC	Em análise do MEC
 PBMato Grosso	PB	Mato Grosso	2509370	Municipal	Em análise do MEC	Em análise do MEC
 PBMaturéia	PB	Maturéia	2509396	Municipal	Em análise do MEC	Em análise do MEC
 PBMogeiro	PB	Mogeiro	2509404	Municipal	Não Iniciado	Em análise do MEC
-PBMontadas	PB	Montadas	2509503	Municipal	Não Iniciado	Em análise do MEC
+PBMontadas	PB	Montadas	2509503	Municipal	Em preenchimento	Em análise do MEC
 PBMonte Horebe	PB	Monte Horebe	2509602	Municipal	Em análise do MEC	Em análise do MEC
 PBMonteiro	PB	Monteiro	2509701	Municipal	Em análise do MEC	Em análise do MEC
 PBMulungu	PB	Mulungu	2509800	Municipal	Em análise do MEC	Em análise do MEC
@@ -2973,7 +2973,7 @@ PESurubim	PE	Surubim	2614501	Municipal	Em análise do MEC	Em análise do MEC
 PETabira	PE	Tabira	2614600	Municipal	Em análise do MEC	Em análise do MEC
 PETacaimbó	PE	Tacaimbó	2614709	Municipal	Em análise do MEC	Em análise do MEC
 PETacaratu	PE	Tacaratu	2614808	Municipal	Não Iniciado	Em análise do MEC
-PETamandaré	PE	Tamandaré	2614857	Municipal	Não Iniciado	Em análise do MEC
+PETamandaré	PE	Tamandaré	2614857	Municipal	Em preenchimento	Em análise do MEC
 PETaquaritinga do Norte	PE	Taquaritinga do Norte	2615003	Municipal	Em análise do MEC	Em análise do MEC
 PETerezinha	PE	Terezinha	2615102	Municipal	Em análise do MEC	Em análise do MEC
 PETerra Nova	PE	Terra Nova	2615201	Municipal	Em análise do MEC	Em análise do MEC
@@ -3023,7 +3023,7 @@ PIBetânia do Piauí	PI	Betânia do Piauí	2201739	Municipal	Em análise do MEC	
 PIBoa Hora	PI	Boa Hora	2201770	Municipal	Em análise do MEC	Em análise do MEC
 PIBocaina	PI	Bocaina	2201804	Municipal	Em análise do MEC	Em análise do MEC
 PIBom Jesus	PI	Bom Jesus	2201903	Municipal	Em preenchimento	Em análise do MEC
-PIBom Princípio do Piauí	PI	Bom Princípio do Piauí	2201919	Municipal	Não Iniciado	Em análise do MEC
+PIBom Princípio do Piauí	PI	Bom Princípio do Piauí	2201919	Municipal	Em preenchimento	Em análise do MEC
 PIBonfim do Piauí	PI	Bonfim do Piauí	2201929	Municipal	Em preenchimento	Em análise do MEC
 PIBoqueirão do Piauí	PI	Boqueirão do Piauí	2201945	Municipal	Em análise do MEC	Em análise do MEC
 PIBrasileira	PI	Brasileira	2201960	Municipal	Não Iniciado	Em análise do MEC
@@ -3155,7 +3155,7 @@ PIPicos	PI	Picos	2208007	Municipal	Não Iniciado	Em análise do MEC
 PIPimenteiras	PI	Pimenteiras	2208106	Municipal	Não Iniciado	Em análise do MEC
 PIPio IX	PI	Pio IX	2208205	Municipal	Em análise do MEC	Em análise do MEC
 PIPiracuruca	PI	Piracuruca	2208304	Municipal	Não Iniciado	Em análise do MEC
-PIPiripiri	PI	Piripiri	2208403	Municipal	Não Iniciado	Em análise do MEC
+PIPiripiri	PI	Piripiri	2208403	Municipal	Em preenchimento	Em análise do MEC
 PIPorto	PI	Porto	2208502	Municipal	Em análise do MEC	Em análise do MEC
 PIPorto Alegre do Piauí	PI	Porto Alegre do Piauí	2208551	Municipal	Em preenchimento	Em análise do MEC
 PIPrata do Piauí	PI	Prata do Piauí	2208601	Municipal	Em análise do MEC	Em análise do MEC
@@ -3520,7 +3520,7 @@ PRRenascença	PR	Renascença	4121604	Municipal	Não Iniciado	Em preenchimento
 PRReserva	PR	Reserva	4121703	Municipal	Não Iniciado	Em análise do MEC
 PRReserva do Iguaçu	PR	Reserva do Iguaçu	4121752	Municipal	Não Iniciado	Em análise do MEC
 PRRibeirão Claro	PR	Ribeirão Claro	4121802	Municipal	Não Iniciado	Em análise do MEC
-PRRibeirão do Pinhal	PR	Ribeirão do Pinhal	4121901	Municipal	Não Iniciado	Não iniciado
+PRRibeirão do Pinhal	PR	Ribeirão do Pinhal	4121901	Municipal	Em preenchimento	Não iniciado
 PRRio Azul	PR	Rio Azul	4122008	Municipal	Em análise do MEC	Em análise do MEC
 PRRio Bom	PR	Rio Bom	4122107	Municipal	Em análise do MEC	Em preenchimento
 PRRio Bonito do Iguaçu	PR	Rio Bonito do Iguaçu	4122156	Municipal	Em análise do MEC	Em análise do MEC
@@ -3620,7 +3620,7 @@ RJ	RJ			Estadual	Não Iniciado	Em análise do MEC
 RJAngra dos Reis	RJ	Angra dos Reis	3300100	Municipal	Em análise do MEC	Em análise do MEC
 RJAperibé	RJ	Aperibé	3300159	Municipal	Em análise do MEC	Em análise do MEC
 RJAraruama	RJ	Araruama	3300209	Municipal	Em análise do MEC	Em análise do MEC
-RJAreal	RJ	Areal	3300225	Municipal	Não Iniciado	Em análise do MEC
+RJAreal	RJ	Areal	3300225	Municipal	Em preenchimento	Em análise do MEC
 RJArmação dos Búzios	RJ	Armação dos Búzios	3300233	Municipal	Em preenchimento	Em análise do MEC
 RJArraial do Cabo	RJ	Arraial do Cabo	3300258	Municipal	Não Iniciado	Em análise do MEC
 RJBarra do Piraí	RJ	Barra do Piraí	3300308	Municipal	Em preenchimento	Em análise do MEC
@@ -3939,7 +3939,7 @@ RRCantá	RR	Cantá	1400175	Municipal	Em análise do MEC	Em análise do MEC
 RRCaracaraí	RR	Caracaraí	1400209	Municipal	Não Iniciado	Em análise do MEC
 RRCaroebe	RR	Caroebe	1400233	Municipal	Em análise do MEC	Em análise do MEC
 RRIracema	RR	Iracema	1400282	Municipal	Não Iniciado	Em preenchimento
-RRMucajaí	RR	Mucajaí	1400308	Municipal	Não Iniciado	Em análise do MEC
+RRMucajaí	RR	Mucajaí	1400308	Municipal	Em preenchimento	Em análise do MEC
 RRNormandia	RR	Normandia	1400407	Municipal	Não Iniciado	Em análise do MEC
 RRPacaraima	RR	Pacaraima	1400456	Municipal	Não Iniciado	Em análise do MEC
 RRRorainópolis	RR	Rorainópolis	1400472	Municipal	Em análise do MEC	Em análise do MEC
@@ -4193,7 +4193,7 @@ RSMaratá	RS	Maratá	4311791	Municipal	Em preenchimento	Em análise do MEC
 RSMarau	RS	Marau	4311809	Municipal	Não Iniciado	Em análise do MEC
 RSMarcelino Ramos	RS	Marcelino Ramos	4311908	Municipal	Em análise do MEC	Em análise do MEC
 RSMariana Pimentel	RS	Mariana Pimentel	4311981	Municipal	Em preenchimento	Em análise do MEC
-RSMariano Moro	RS	Mariano Moro	4312005	Municipal	Em preenchimento	Em análise do MEC
+RSMariano Moro	RS	Mariano Moro	4312005	Municipal	Em análise do MEC	Em análise do MEC
 RSMarques de Souza	RS	Marques de Souza	4312054	Municipal	Em análise do MEC	Em análise do MEC
 RSMata	RS	Mata	4312104	Municipal	Em preenchimento	Em preenchimento
 RSMato Castelhano	RS	Mato Castelhano	4312138	Municipal	Em análise do MEC	Em análise do MEC
@@ -4211,7 +4211,7 @@ RSMorrinhos do Sul	RS	Morrinhos do Sul	4312443	Municipal	Em análise do MEC	Em a
 RSMorro Redondo	RS	Morro Redondo	4312450	Municipal	Não Iniciado	Em análise do MEC
 RSMorro Reuter	RS	Morro Reuter	4312476	Municipal	Em análise do MEC	Em análise do MEC
 RSMostardas	RS	Mostardas	4312500	Municipal	Em análise do MEC	Em análise do MEC
-RSMuçum	RS	Muçum	4312609	Municipal	Em preenchimento	Em análise do MEC
+RSMuçum	RS	Muçum	4312609	Municipal	Em análise do MEC	Em análise do MEC
 RSMuitos Capões	RS	Muitos Capões	4312617	Municipal	Não Iniciado	Em análise do MEC
 RSMuliterno	RS	Muliterno	4312625	Municipal	Em análise do MEC	Em análise do MEC
 RSNão-Me-Toque	RS	Não-Me-Toque	4312658	Municipal	Em análise do MEC	Em análise do MEC
@@ -4505,7 +4505,7 @@ SCCampos Novos	SC	Campos Novos	4203600	Municipal	Em análise do MEC	Em análise 
 SCCanelinha	SC	Canelinha	4203709	Municipal	Em análise do MEC	Em análise do MEC
 SCCanoinhas	SC	Canoinhas	4203808	Municipal	Em análise do MEC	Em análise do MEC
 SCCapinzal	SC	Capinzal	4203907	Municipal	Em análise do MEC	Em análise do MEC
-SCCapivari de Baixo	SC	Capivari de Baixo	4203956	Municipal	Em preenchimento	Em análise do MEC
+SCCapivari de Baixo	SC	Capivari de Baixo	4203956	Municipal	Em análise do MEC	Em análise do MEC
 SCCatanduvas	SC	Catanduvas	4204004	Municipal	Em análise do MEC	Em análise do MEC
 SCCaxambu do Sul	SC	Caxambu do Sul	4204103	Municipal	Não Iniciado	Em preenchimento
 SCCelso Ramos	SC	Celso Ramos	4204152	Municipal	Não Iniciado	Em preenchimento
@@ -4534,7 +4534,7 @@ SCFaxinal dos Guedes	SC	Faxinal dos Guedes	4205308	Municipal	Em análise do MEC	
 SCFlor do Sertão	SC	Flor do Sertão	4205357	Municipal	Em análise do MEC	Em análise do MEC
 SCFlorianópolis	SC	Florianópolis	4205407	Municipal	Não Iniciado	Em análise do MEC
 SCFormosa do Sul	SC	Formosa do Sul	4205431	Municipal	Em análise do MEC	Em análise do MEC
-SCForquilhinha	SC	Forquilhinha	4205456	Municipal	Em preenchimento	Em análise do MEC
+SCForquilhinha	SC	Forquilhinha	4205456	Municipal	Em análise do MEC	Em análise do MEC
 SCFraiburgo	SC	Fraiburgo	4205506	Municipal	Não Iniciado	Em análise do MEC
 SCFrei Rogério	SC	Frei Rogério	4205555	Municipal	Não Iniciado	Em análise do MEC
 SCGalvão	SC	Galvão	4205605	Municipal	Em análise do MEC	Em análise do MEC
@@ -4740,14 +4740,14 @@ SCXavantina	SC	Xavantina	4219606	Municipal	Em análise do MEC	Em análise do MEC
 SCXaxim	SC	Xaxim	4219705	Municipal	Em preenchimento	Em análise do MEC
 SCZortéa	SC	Zortéa	4219853	Municipal	Em análise do MEC	Em análise do MEC
 SCBalneário Rincão	SC	Balneário Rincão	4220000	Municipal	Não Iniciado	Em análise do MEC
-SE	SE			Estadual	Em preenchimento	Em análise do MEC
+SE	SE			Estadual	Em análise do MEC	Em análise do MEC
 SEAmparo do São Francisco	SE	Amparo do São Francisco	2800100	Municipal	Em análise do MEC	Em análise do MEC
 SEAquidabã	SE	Aquidabã	2800209	Municipal	Em análise do MEC	Em análise do MEC
 SEAracaju	SE	Aracaju	2800308	Municipal	Em análise do MEC	Em análise do MEC
 SEArauá	SE	Arauá	2800407	Municipal	Não Iniciado	Em análise do MEC
 SEAreia Branca	SE	Areia Branca	2800506	Municipal	Em análise do MEC	Em análise do MEC
 SEBarra dos Coqueiros	SE	Barra dos Coqueiros	2800605	Municipal	Não Iniciado	Em análise do MEC
-SEBoquim	SE	Boquim	2800670	Municipal	Em preenchimento	Em análise do MEC
+SEBoquim	SE	Boquim	2800670	Municipal	Em análise do MEC	Em análise do MEC
 SEBrejo Grande	SE	Brejo Grande	2800704	Municipal	Não Iniciado	Em análise do MEC
 SECampo do Brito	SE	Campo do Brito	2801009	Municipal	Em análise do MEC	Em análise do MEC
 SECanhoba	SE	Canhoba	2801108	Municipal	Em análise do MEC	Em análise do MEC
@@ -4797,13 +4797,13 @@ SEPoço Redondo	SE	Poço Redondo	2805406	Municipal	Em análise do MEC	Em anális
 SEPoço Verde	SE	Poço Verde	2805505	Municipal	Em análise do MEC	Em análise do MEC
 SEPorto da Folha	SE	Porto da Folha	2805604	Municipal	Em análise do MEC	Em análise do MEC
 SEPropriá	SE	Propriá	2805703	Municipal	Em análise do MEC	Em análise do MEC
-SERiachão do Dantas	SE	Riachão do Dantas	2805802	Municipal	Não Iniciado	Em análise do MEC
+SERiachão do Dantas	SE	Riachão do Dantas	2805802	Municipal	Em preenchimento	Em análise do MEC
 SERiachuelo	SE	Riachuelo	2805901	Municipal	Em análise do MEC	Em análise do MEC
 SERibeirópolis	SE	Ribeirópolis	2806008	Municipal	Em análise do MEC	Em análise do MEC
 SERosário do Catete	SE	Rosário do Catete	2806107	Municipal	Não Iniciado	Em análise do MEC
 SESalgado	SE	Salgado	2806206	Municipal	Em análise do MEC	Em análise do MEC
 SESanta Luzia do Itanhy	SE	Santa Luzia do Itanhy	2806305	Municipal	Em análise do MEC	Em análise do MEC
-SESantana do São Francisco	SE	Santana do São Francisco	2806404	Municipal	Não Iniciado	Em análise do MEC
+SESantana do São Francisco	SE	Santana do São Francisco	2806404	Municipal	Em preenchimento	Em análise do MEC
 SESanta Rosa de Lima	SE	Santa Rosa de Lima	2806503	Municipal	Em análise do MEC	Em análise do MEC
 SESanto Amaro das Brotas	SE	Santo Amaro das Brotas	2806602	Municipal	Não Iniciado	Em análise do MEC
 SESão Cristóvão	SE	São Cristóvão	2806701	Municipal	Em análise do MEC	Em análise do MEC
@@ -4922,7 +4922,7 @@ SPCaieiras	SP	Caieiras	3509007	Municipal	Em preenchimento	Em análise do MEC
 SPCaiuá	SP	Caiuá	3509106	Municipal	Em preenchimento	Em análise do MEC
 SPCajamar	SP	Cajamar	3509205	Municipal	Em análise do MEC	Em análise do MEC
 SPCajati	SP	Cajati	3509254	Municipal	Em análise do MEC	Em análise do MEC
-SPCajobi	SP	Cajobi	3509304	Municipal	Em preenchimento	Em análise do MEC
+SPCajobi	SP	Cajobi	3509304	Municipal	Em análise do MEC	Em análise do MEC
 SPCajuru	SP	Cajuru	3509403	Municipal	Em preenchimento	Em análise do MEC
 SPCampina do Monte Alegre	SP	Campina do Monte Alegre	3509452	Municipal	Não Iniciado	Em análise do MEC
 SPCampinas	SP	Campinas	3509502	Municipal	Não Iniciado	Em análise do MEC
@@ -5004,7 +5004,7 @@ SPFlórida Paulista	SP	Flórida Paulista	3516002	Municipal	Não Iniciado	Em aná
 SPFlorínea	SP	Florínea	3516101	Municipal	Não Iniciado	Não iniciado
 SPFranca	SP	Franca	3516200	Municipal	Não Iniciado	Em preenchimento
 SPFrancisco Morato	SP	Francisco Morato	3516309	Municipal	Em análise do MEC	Em análise do MEC
-SPFranco da Rocha	SP	Franco da Rocha	3516408	Municipal	Em preenchimento	Em análise do MEC
+SPFranco da Rocha	SP	Franco da Rocha	3516408	Municipal	Em análise do MEC	Em análise do MEC
 SPGabriel Monteiro	SP	Gabriel Monteiro	3516507	Municipal	Não Iniciado	Em análise do MEC
 SPGália	SP	Gália	3516606	Municipal	Não Iniciado	Não iniciado
 SPGarça	SP	Garça	3516705	Municipal	Em análise do MEC	Em análise do MEC
@@ -5185,7 +5185,7 @@ SPNeves Paulista	SP	Neves Paulista	3532504	Municipal	Em análise do MEC	Em anál
 SPNhandeara	SP	Nhandeara	3532603	Municipal	Não Iniciado	Não iniciado
 SPNipoã	SP	Nipoã	3532702	Municipal	Em análise do MEC	Em análise do MEC
 SPNova Aliança	SP	Nova Aliança	3532801	Municipal	Em preenchimento	Em análise do MEC
-SPNova Campina	SP	Nova Campina	3532827	Municipal	Não Iniciado	Em análise do MEC
+SPNova Campina	SP	Nova Campina	3532827	Municipal	Em preenchimento	Em análise do MEC
 SPNova Canaã Paulista	SP	Nova Canaã Paulista	3532843	Municipal	Não Iniciado	Não iniciado
 SPNova Castilho	SP	Nova Castilho	3532868	Municipal	Não Iniciado	Não iniciado
 SPNova Europa	SP	Nova Europa	3532900	Municipal	Em análise do MEC	Em preenchimento
@@ -5579,7 +5579,7 @@ TOSampaio	TO	Sampaio	1718808	Municipal	Em análise do MEC	Em análise do MEC
 TOSandolândia	TO	Sandolândia	1718840	Municipal	Não Iniciado	Em análise do MEC
 TOSanta Fé do Araguaia	TO	Santa Fé do Araguaia	1718865	Municipal	Em análise do MEC	Em análise do MEC
 TOSanta Maria do Tocantins	TO	Santa Maria do Tocantins	1718881	Municipal	Não Iniciado	Em análise do MEC
-TOSanta Rita do Tocantins	TO	Santa Rita do Tocantins	1718899	Municipal	Em preenchimento	Em análise do MEC
+TOSanta Rita do Tocantins	TO	Santa Rita do Tocantins	1718899	Municipal	Em análise do MEC	Em análise do MEC
 TOSanta Rosa do Tocantins	TO	Santa Rosa do Tocantins	1718907	Municipal	Em análise do MEC	Em análise do MEC
 TOSanta Tereza do Tocantins	TO	Santa Tereza do Tocantins	1719004	Municipal	Não Iniciado	Em análise do MEC
 TOSanta Terezinha do Tocantins	TO	Santa Terezinha do Tocantins	1720002	Municipal	Não Iniciado	Em análise do MEC

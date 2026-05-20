@@ -6,7 +6,7 @@ PRAZO_PIEC: 06/05/2026
 ID	UF	Município	Código IBGE	Esfera	Status Simec	Status Simec Piec
 AC	AC			Estadual	Em preenchimento	Em análise do MEC
 ACAcrelândia	AC	Acrelândia	1200013	Municipal	Em análise do MEC	Em análise do MEC
-ACAssis Brasil	AC	Assis Brasil	1200054	Municipal	Não Iniciado	Em análise do MEC
+ACAssis Brasil	AC	Assis Brasil	1200054	Municipal	Em preenchimento	Em análise do MEC
 ACBrasiléia	AC	Brasiléia	1200104	Municipal	Não Iniciado	Em análise do MEC
 ACBujari	AC	Bujari	1200138	Municipal	Não Iniciado	Em análise do MEC
 ACCapixaba	AC	Capixaba	1200179	Municipal	Em análise do MEC	Em análise do MEC
@@ -755,7 +755,7 @@ CENova Russas	CE	Nova Russas	2309300	Municipal	Não Iniciado	Em análise do MEC
 CENovo Oriente	CE	Novo Oriente	2309409	Municipal	Em preenchimento	Em análise do MEC
 CEOcara	CE	Ocara	2309458	Municipal	Em análise do MEC	Em análise do MEC
 CEOrós	CE	Orós	2309508	Municipal	Em análise do MEC	Em análise do MEC
-CEPacajus	CE	Pacajus	2309607	Municipal	Não Iniciado	Em análise do MEC
+CEPacajus	CE	Pacajus	2309607	Municipal	Em preenchimento	Em análise do MEC
 CEPacatuba	CE	Pacatuba	2309706	Municipal	Em análise do MEC	Em análise do MEC
 CEPacoti	CE	Pacoti	2309805	Municipal	Em análise do MEC	Em análise do MEC
 CEPacujá	CE	Pacujá	2309904	Municipal	Em análise do MEC	Em análise do MEC
@@ -1166,7 +1166,7 @@ MABacabeira	MA	Bacabeira	2101251	Municipal	Em análise do MEC	Em análise do MEC
 MABacuri	MA	Bacuri	2101301	Municipal	Em análise do MEC	Em análise do MEC
 MABacurituba	MA	Bacurituba	2101350	Municipal	Não Iniciado	Em análise do MEC
 MABalsas	MA	Balsas	2101400	Municipal	Não Iniciado	Em análise do MEC
-MABarão de Grajaú	MA	Barão de Grajaú	2101509	Municipal	Em preenchimento	Em análise do MEC
+MABarão de Grajaú	MA	Barão de Grajaú	2101509	Municipal	Em análise do MEC	Em análise do MEC
 MABarra do Corda	MA	Barra do Corda	2101608	Municipal	Em análise do MEC	Em análise do MEC
 MABarreirinhas	MA	Barreirinhas	2101707	Municipal	Em análise do MEC	Em análise do MEC
 MABelágua	MA	Belágua	2101731	Municipal	Não Iniciado	Em análise do MEC
@@ -2274,7 +2274,7 @@ MSNovo Horizonte do Sul	MS	Novo Horizonte do Sul	5006259	Municipal	Em análise d
 MSParaíso das Águas	MS	Paraíso das Águas	5006275	Municipal	Em análise do MEC	Em análise do MEC
 MSParanaíba	MS	Paranaíba	5006309	Municipal	Em análise do MEC	Em análise do MEC
 MSParanhos	MS	Paranhos	5006358	Municipal	Em análise do MEC	Em análise do MEC
-MSPedro Gomes	MS	Pedro Gomes	5006408	Municipal	Em preenchimento	Em análise do MEC
+MSPedro Gomes	MS	Pedro Gomes	5006408	Municipal	Em análise do MEC	Em análise do MEC
 MSPonta Porã	MS	Ponta Porã	5006606	Municipal	Em análise do MEC	Em análise do MEC
 MSPorto Murtinho	MS	Porto Murtinho	5006903	Municipal	Em análise do MEC	Em análise do MEC
 MSRibas do Rio Pardo	MS	Ribas do Rio Pardo	5007109	Municipal	Em análise do MEC	Em análise do MEC
@@ -4776,7 +4776,7 @@ SEJapoatã	SE	Japoatã	2803401	Municipal	Em análise do MEC	Em análise do MEC
 SELagarto	SE	Lagarto	2803500	Municipal	Não Iniciado	Em análise do MEC
 SELaranjeiras	SE	Laranjeiras	2803609	Municipal	Em análise do MEC	Em análise do MEC
 SEMacambira	SE	Macambira	2803708	Municipal	Em análise do MEC	Em análise do MEC
-SEMalhada dos Bois	SE	Malhada dos Bois	2803807	Municipal	Não Iniciado	Em análise do MEC
+SEMalhada dos Bois	SE	Malhada dos Bois	2803807	Municipal	Em preenchimento	Em análise do MEC
 SEMalhador	SE	Malhador	2803906	Municipal	Em análise do MEC	Em análise do MEC
 SEMaruim	SE	Maruim	2804003	Municipal	Em preenchimento	Em análise do MEC
 SEMoita Bonita	SE	Moita Bonita	2804102	Municipal	Em análise do MEC	Em análise do MEC
@@ -4909,7 +4909,7 @@ SPBrejo Alegre	SP	Brejo Alegre	3507753	Municipal	Não Iniciado	Em análise do ME
 SPBrodowski	SP	Brodowski	3507803	Municipal	Em análise do MEC	Em análise do MEC
 SPBrotas	SP	Brotas	3507902	Municipal	Não Iniciado	Em análise do MEC
 SPBuri	SP	Buri	3508009	Municipal	Em análise do MEC	Em análise do MEC
-SPBuritama	SP	Buritama	3508108	Municipal	Não Iniciado	Em análise do MEC
+SPBuritama	SP	Buritama	3508108	Municipal	Em preenchimento	Em análise do MEC
 SPBuritizal	SP	Buritizal	3508207	Municipal	Não Iniciado	Não iniciado
 SPCabrália Paulista	SP	Cabrália Paulista	3508306	Municipal	Não Iniciado	Não iniciado
 SPCabreúva	SP	Cabreúva	3508405	Municipal	Não Iniciado	Em análise do MEC
@@ -5498,7 +5498,7 @@ TOCarmolândia	TO	Carmolândia	1703883	Municipal	Em análise do MEC	Em análise 
 TOCarrasco Bonito	TO	Carrasco Bonito	1703891	Municipal	Não Iniciado	Em análise do MEC
 TOCaseara	TO	Caseara	1703909	Municipal	Em análise do MEC	Em análise do MEC
 TOCentenário	TO	Centenário	1704105	Municipal	Não Iniciado	Em análise do MEC
-TOChapada de Areia	TO	Chapada de Areia	1704600	Municipal	Em preenchimento	Em análise do MEC
+TOChapada de Areia	TO	Chapada de Areia	1704600	Municipal	Em análise do MEC	Em análise do MEC
 TOChapada da Natividade	TO	Chapada da Natividade	1705102	Municipal	Não Iniciado	Em análise do MEC
 TOColinas do Tocantins	TO	Colinas do Tocantins	1705508	Municipal	Em análise do MEC	Em análise do MEC
 TOCombinado	TO	Combinado	1705557	Municipal	Em preenchimento	Em análise do MEC

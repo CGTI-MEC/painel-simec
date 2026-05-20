@@ -198,9 +198,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
 </div>
 <div class="prazos-wrapper">
   <div class="prazo-card">
-    <div class="pd-wrap"><div class="pd-num" id="dias-piec">&mdash;</div><div class="pd-lbl" id="lbl-piec">dias</div></div>
-    <div class="pi-info"><div class="pe">Etapa 2 &mdash; Módulo Educação Conectada (PIEC)</div><div class="pm" id="prazo-piec-data">&nbsp;</div></div>
-    <div class="prazo-badge" id="prazo-piec-badge">&mdash;</div>
+    <div class="pd-wrap"><div class="pd-num" id="dias-pdde">&mdash;</div><div class="pd-lbl" id="lbl-pdde">dias</div></div>
+    <div class="pi-info"><div class="pe">Etapa 3 &mdash; PDDE Interativo (PAF das Escolas)</div><div class="pm" id="prazo-pdde-data">&nbsp;</div></div>
+    <div class="prazo-badge" id="prazo-pdde-badge">&mdash;</div>
   </div>
   <div class="prazo-card">
     <div class="pd-wrap"><div class="pd-num" id="dias-enec">&mdash;</div><div class="pd-lbl" id="lbl-enec">dias</div></div>
@@ -208,9 +208,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
     <div class="prazo-badge" id="prazo-enec-badge">&mdash;</div>
   </div>
   <div class="prazo-card">
-    <div class="pd-wrap"><div class="pd-num" id="dias-pdde">&mdash;</div><div class="pd-lbl" id="lbl-pdde">dias</div></div>
-    <div class="pi-info"><div class="pe">Etapa 3 &mdash; PDDE Interativo (PAF das Escolas)</div><div class="pm" id="prazo-pdde-data">&nbsp;</div></div>
-    <div class="prazo-badge" id="prazo-pdde-badge">&mdash;</div>
+    <div class="pd-wrap"><div class="pd-num" id="dias-piec">&mdash;</div><div class="pd-lbl" id="lbl-piec">dias</div></div>
+    <div class="pi-info"><div class="pe">Etapa 2 &mdash; Módulo Educação Conectada (PIEC)</div><div class="pm" id="prazo-piec-data">&nbsp;</div></div>
+    <div class="prazo-badge" id="prazo-piec-badge">&mdash;</div>
   </div>
 </div>
 
@@ -227,7 +227,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
   <div class="tnac-wrap"><table class="tnac"><thead><tr><th class="th-e1" style="width:36%">Status SIMEC<br><strong>Etapa 1 &mdash; Módulo ENEC</strong></th><th class="th-e1" style="width:15%">Redes<br>Municipais</th><th class="th-e1" style="width:15%">Redes<br>Estaduais</th><th class="th-e1">UFs Estaduais</th></tr></thead><tbody id="tb-nac-e1"><tr><td colspan="4" class="loading">Carregando...</td></tr></tbody></table></div>
   <div class="tnac-wrap"><table class="tnac"><thead><tr><th class="th-e2" style="width:36%">Status SIMEC<br><strong>Etapa 2 &mdash; Módulo Educação Conectada (PIEC)</strong></th><th class="th-e2" style="width:15%">Redes<br>Municipais</th><th class="th-e2" style="width:15%">Redes<br>Estaduais</th><th class="th-e2">UFs Estaduais</th></tr></thead><tbody id="tb-nac-e2"><tr><td colspan="4" class="loading">Carregando...</td></tr></tbody></table></div>
   <div class="sec">Visão Geral &mdash; Brasil &middot; Etapa 3 no PDDE Interativo (Escolas)</div>
-  <div class="tnac-wrap"><table class="tnac"><thead><tr><th class="th-e3" style="width:36%">Status PDDE<br><strong>Etapa 3 &mdash; PDDE Interativo (PAF das Escolas)</strong></th><th class="th-e3" style="width:20%">Escolas</th><th class="th-e3">% do Total</th></tr></thead><tbody id="tb-nac-e3"><tr><td colspan="3" class="loading">Carregando...</td></tr></tbody></table></div>
+  <div class="tnac-wrap"><table class="tnac"><thead><tr><th class="th-e3" style="width:36%">Status PDDE<br><strong>Etapa 3 &mdash; PDDE Interativo (PAF das Escolas)</strong></th><th class="th-e3" style="width:16%">Total</th><th class="th-e3" style="width:16%">Municipal</th><th class="th-e3">Estadual</th></tr></thead><tbody id="tb-nac-e3"><tr><td colspan="3" class="loading">Carregando...</td></tr></tbody></table></div>
 </div>
 
 <div id="tab-estadual" style="display:none">
@@ -538,11 +538,30 @@ function renderPrazo(numId,lblId,dataId,badgeId,data){
   var diff=calcPrazo(data);
   if(diff===null)return;
   var el=document.getElementById(numId);
-  el.textContent=Math.abs(diff);
-  el.style.color=diff<0?'#c0392b':diff<=7?'#c98000':'#1a8f3f';
-  document.getElementById(lblId).textContent=diff<0?'dias em atraso':'dias restantes';
+  var badge=document.getElementById(badgeId);
+  var lbl=document.getElementById(lblId);
   document.getElementById(dataId).textContent='Prazo: '+data;
-  document.getElementById(badgeId).textContent='até '+data;
+  if(diff<0){
+    // Prazo encerrado — mostrar ENCERRADO em cinza
+    el.textContent='—';
+    el.style.color='#aaa';
+    lbl.textContent='encerrado';
+    lbl.style.color='#aaa';
+    badge.textContent='Encerrado em '+data;
+    badge.style.background='#eee';
+    badge.style.color='#aaa';
+    // Mudar borda do card para cinza
+    badge.closest('.prazo-card').style.borderColor='#ddd';
+  } else {
+    el.textContent=Math.abs(diff);
+    el.style.color=diff<=7?'#c98000':'#1a8f3f';
+    lbl.textContent='dias restantes';
+    lbl.style.color='';
+    badge.textContent='até '+data;
+    badge.style.background='';
+    badge.style.color='';
+    badge.closest('.prazo-card').style.borderColor='';
+  }
 }
 function renderPrazos(c){
   renderPrazo('dias-enec','lbl-enec','prazo-enec-data','prazo-enec-badge',c.prazoEnec);
@@ -669,12 +688,20 @@ function renderNacE3(){
   var t3=document.getElementById('tb-nac-e3');
   if(!t3)return;
   var status=['Não iniciado','Em cadastramento','Não aceitou o Apoio','Em análise do MEC'];
+  var totMun=d.filter(function(r){return r.esfera==='Municipal';}).length;
+  var totEst=d.filter(function(r){return r.esfera==='Estadual';}).length;
   t3.innerHTML='';
   status.forEach(function(s){
-    var n=d.filter(function(r){return r.status_paf===s;}).length;
-    t3.innerHTML+='<tr><td>'+bdgPaf(s)+'</td><td><span class="nb">'+fmt(n)+'</span></td><td>'+pct(n,total)+'</td></tr>';
+    var n=d.filter(function(r){return r.status_pdde===s;}).length;
+    var nMun=d.filter(function(r){return r.status_pdde===s&&r.esfera==='Municipal';}).length;
+    var nEst=d.filter(function(r){return r.status_pdde===s&&r.esfera==='Estadual';}).length;
+    t3.innerHTML+='<tr><td>'+bdgPaf(s)+'</td>'
+      +'<td><span class="nb">'+fmt(n)+'</span><span class="cl">'+pct(n,total)+'</span></td>'
+      +'<td><span class="nb">'+fmt(nMun)+'</span><span class="cl">'+pct(nMun,totMun)+'</span></td>'
+      +'<td><span class="nb">'+fmt(nEst)+'</span><span class="cl">'+pct(nEst,totEst)+'</span></td>'
+      +'</tr>';
   });
-  t3.innerHTML+='<tr><td>Total</td><td>'+fmt(total)+'</td><td>100%</td></tr>';
+  t3.innerHTML+='<tr><td>Total</td><td>'+fmt(total)+'</td><td>'+fmt(totMun)+'</td><td>'+fmt(totEst)+'</td></tr>';
 }
 
 // ----- Estadual -----

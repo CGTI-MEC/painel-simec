@@ -228,7 +228,26 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
   <div class="tnac-wrap"><table class="tnac"><thead><tr><th class="th-e2" style="width:36%">Status SIMEC<br><strong>Etapa 2 &mdash; Módulo Educação Conectada (PIEC)</strong></th><th class="th-e2" style="width:15%">Redes<br>Municipais</th><th class="th-e2" style="width:15%">Redes<br>Estaduais</th><th class="th-e2">UFs Estaduais</th></tr></thead><tbody id="tb-nac-e2"><tr><td colspan="4" class="loading">Carregando...</td></tr></tbody></table></div>
   <div class="sec">Visão Geral &mdash; Brasil &middot; Etapa 3 no PDDE Interativo (Escolas)</div>
   <div class="tnac-wrap"><table class="tnac"><thead><tr><th class="th-e3" style="width:36%">Status PDDE<br><strong>Etapa 3 &mdash; PDDE Interativo (PAF das Escolas)</strong></th><th class="th-e3" style="width:16%">Total</th><th class="th-e3" style="width:16%">Municipal</th><th class="th-e3">Estadual</th></tr></thead><tbody id="tb-nac-e3"><tr><td colspan="3" class="loading">Carregando...</td></tr></tbody></table></div>
+
+  <div class="sec">Por Região &mdash; Redes com Etapas 1 + 2 Concluídas no SIMEC</div>
+  <div class="cards5">
+    <div class="creg" id="creg-n-norte-card"><div class="cr-nome">Norte</div><div class="cr-info" id="creg-n-norte-info">&mdash;</div><div class="cr-pct" id="creg-n-norte-pct" style="color:#888">&mdash;</div><div class="cr-bar"><div class="cr-fill" id="creg-n-norte-bar" style="width:1%;background:#888"></div></div></div>
+    <div class="creg" id="creg-n-nordeste-card"><div class="cr-nome">Nordeste</div><div class="cr-info" id="creg-n-nordeste-info">&mdash;</div><div class="cr-pct" id="creg-n-nordeste-pct" style="color:#888">&mdash;</div><div class="cr-bar"><div class="cr-fill" id="creg-n-nordeste-bar" style="width:1%;background:#888"></div></div></div>
+    <div class="creg" id="creg-n-centrooeste-card"><div class="cr-nome">Centro-Oeste</div><div class="cr-info" id="creg-n-centrooeste-info">&mdash;</div><div class="cr-pct" id="creg-n-centrooeste-pct" style="color:#888">&mdash;</div><div class="cr-bar"><div class="cr-fill" id="creg-n-centrooeste-bar" style="width:1%;background:#888"></div></div></div>
+    <div class="creg" id="creg-n-sudeste-card"><div class="cr-nome">Sudeste</div><div class="cr-info" id="creg-n-sudeste-info">&mdash;</div><div class="cr-pct" id="creg-n-sudeste-pct" style="color:#888">&mdash;</div><div class="cr-bar"><div class="cr-fill" id="creg-n-sudeste-bar" style="width:1%;background:#888"></div></div></div>
+    <div class="creg" id="creg-n-sul-card"><div class="cr-nome">Sul</div><div class="cr-info" id="creg-n-sul-info">&mdash;</div><div class="cr-pct" id="creg-n-sul-pct" style="color:#888">&mdash;</div><div class="cr-bar"><div class="cr-fill" id="creg-n-sul-bar" style="width:1%;background:#888"></div></div></div>
+  </div>
+
+  <div class="sec">Por Região &mdash; Escolas com PAF Enviado ao MEC</div>
+  <div class="cards5">
+    <div class="creg" id="creg-ne-norte-card"><div class="cr-nome">Norte</div><div class="cr-info" id="creg-ne-norte-info">&mdash;</div><div class="cr-pct" id="creg-ne-norte-pct" style="color:#888">&mdash;</div><div class="cr-bar"><div class="cr-fill" id="creg-ne-norte-bar" style="width:1%;background:#888"></div></div></div>
+    <div class="creg" id="creg-ne-nordeste-card"><div class="cr-nome">Nordeste</div><div class="cr-info" id="creg-ne-nordeste-info">&mdash;</div><div class="cr-pct" id="creg-ne-nordeste-pct" style="color:#888">&mdash;</div><div class="cr-bar"><div class="cr-fill" id="creg-ne-nordeste-bar" style="width:1%;background:#888"></div></div></div>
+    <div class="creg" id="creg-ne-centrooeste-card"><div class="cr-nome">Centro-Oeste</div><div class="cr-info" id="creg-ne-centrooeste-info">&mdash;</div><div class="cr-pct" id="creg-ne-centrooeste-pct" style="color:#888">&mdash;</div><div class="cr-bar"><div class="cr-fill" id="creg-ne-centrooeste-bar" style="width:1%;background:#888"></div></div></div>
+    <div class="creg" id="creg-ne-sudeste-card"><div class="cr-nome">Sudeste</div><div class="cr-info" id="creg-ne-sudeste-info">&mdash;</div><div class="cr-pct" id="creg-ne-sudeste-pct" style="color:#888">&mdash;</div><div class="cr-bar"><div class="cr-fill" id="creg-ne-sudeste-bar" style="width:1%;background:#888"></div></div></div>
+    <div class="creg" id="creg-ne-sul-card"><div class="cr-nome">Sul</div><div class="cr-info" id="creg-ne-sul-info">&mdash;</div><div class="cr-pct" id="creg-ne-sul-pct" style="color:#888">&mdash;</div><div class="cr-bar"><div class="cr-fill" id="creg-ne-sul-bar" style="width:1%;background:#888"></div></div></div>
+  </div>
 </div>
+
 
 <div id="tab-estadual" style="display:none">
   <div class="sec">Visão Geral &mdash; Redes Estaduais &middot; Etapas 1 + 2 no SIMEC</div>
@@ -617,7 +636,7 @@ function carregarTudo(primeiro){
         var stream = blob.stream().pipeThrough(ds);
         return new Response(stream).json();
       })
-      .then(function(d){dadosEscolas=d;renderEscolasResumo();populaUfsEsc();})
+      .then(function(d){dadosEscolas=d;renderEscolasResumo();atualizarRegiaoEsc();atualizarRegiaoNac();populaUfsEsc();})
       .catch(function(e){console.warn('Escolas:',e);});
   }
   fetch('https://api.github.com/repos/CGTI-MEC/painel-simec/commits?path=saida/relatorio.txt&per_page=1')
@@ -662,6 +681,7 @@ function aplicarRedes(redes){
   ufsMunicipais.sort();
   renderNacional(); atualizarCardsE(dadosEstaduais); populaUfE(); filtrarE();
   atualizarCardsM(dadosMunicipais); populaUfM(); filtrarM();
+  atualizarRegiaoNac();
 }
 
 function renderNacional(){
@@ -994,6 +1014,70 @@ function filtrarEscolas(){
   }).join('');
   if(fEsc.length>MAX)tb.innerHTML+='<tr><td colspan="'+ncols+'" style="text-align:center;color:#888;padding:8px;font-size:11px">Exibindo '+MAX+' de '+fEsc.length+'. Baixe para ver todos.</td></tr>';
   document.getElementById('ct-esc').textContent=fEsc.length;
+  if(typeof atualizarRegiaoEsc==='function')atualizarRegiaoEsc();
+}
+
+function atualizarRegiaoNac(){
+  var regioes={'Norte':'norte','Nordeste':'nordeste','Centro-Oeste':'centrooeste','Sudeste':'sudeste','Sul':'sul'};
+  var REGIOES_NAC={'Norte':['AC','AM','AP','PA','RO','RR','TO'],'Nordeste':['AL','BA','CE','MA','PB','PE','PI','RN','SE'],'Centro-Oeste':['DF','GO','MT','MS'],'Sudeste':['ES','MG','RJ','SP'],'Sul':['PR','RS','SC']};
+  // Cards de redes (Etapas 1+2 concluídas)
+  var todasRedes=dadosEstaduais.concat(dadosMunicipais);
+  Object.keys(REGIOES_NAC).forEach(function(reg){
+    var k=regioes[reg];
+    var ufs=REGIOES_NAC[reg];
+    var rd=todasRedes.filter(function(r){return ufs.indexOf(r.uf)>=0;});
+    var rt=rd.length, rc=rd.filter(function(r){return r.simec==='Concluída';}).length;
+    var p=rt?Math.round(rc/rt*100):0;
+    var cor=p>=70?'#2a7a3b':p>=40?'#b07a00':'#c03939';
+    var ep=document.getElementById('creg-n-'+k+'-pct');
+    var ei=document.getElementById('creg-n-'+k+'-info');
+    var eb=document.getElementById('creg-n-'+k+'-bar');
+    if(ep){ep.textContent=p+'%';ep.style.color=cor;}
+    if(ei){ei.textContent=fmt(rc)+' de '+fmt(rt)+' redes concluíram as 2 etapas';}
+    if(eb){eb.style.width=p+'%';eb.style.background=cor;}
+  });
+  // Cards de escolas (PAF enviado)
+  if(!dadosEscolas.length)return;
+  Object.keys(REGIOES_NAC).forEach(function(reg){
+    var k=regioes[reg];
+    var ufs=REGIOES_NAC[reg];
+    var rd=dadosEscolas.filter(function(r){return ufs.indexOf(r.uf)>=0;});
+    var rt=rd.length, rc=rd.filter(function(r){return r.status_pdde==='Em análise do MEC';}).length;
+    var p=rt?Math.round(rc/rt*100):0;
+    var cor=p>=70?'#2a7a3b':p>=40?'#b07a00':'#c03939';
+    var ep=document.getElementById('creg-ne-'+k+'-pct');
+    var ei=document.getElementById('creg-ne-'+k+'-info');
+    var eb=document.getElementById('creg-ne-'+k+'-bar');
+    if(ep){ep.textContent=p+'%';ep.style.color=cor;}
+    if(ei){ei.textContent=fmt(rc)+' de '+fmt(rt)+' escolas com PAF enviado';}
+    if(eb){eb.style.width=p+'%';eb.style.background=cor;}
+  });
+}
+
+function atualizarRegiaoEsc(){
+  var regioes={'Norte':'norte','Nordeste':'nordeste','Centro-Oeste':'centrooeste','Sudeste':'sudeste','Sul':'sul'};
+  var REGIOES_ESC={'Norte':['AC','AM','AP','PA','RO','RR','TO'],'Nordeste':['AL','BA','CE','MA','PB','PE','PI','RN','SE'],'Centro-Oeste':['DF','GO','MT','MS'],'Sudeste':['ES','MG','RJ','SP'],'Sul':['PR','RS','SC']};
+  var d=dadosEscolas;
+  Object.keys(REGIOES_ESC).forEach(function(reg){
+    var k=regioes[reg];
+    var ufs=REGIOES_ESC[reg];
+    var rd=d.filter(function(r){return ufs.indexOf(r.uf)>=0;});
+    var rt=rd.length;
+    var rc=rd.filter(function(r){return r.status_pdde==='Em análise do MEC';}).length;
+    var p=rt?Math.round(rc/rt*100):0;
+    var cor=p>=70?'#2a7a3b':p>=40?'#b07a00':'#c03939';
+    var ep=document.getElementById('creg-esc-'+k+'-pct');
+    var ei=document.getElementById('creg-esc-'+k+'-info');
+    var eb=document.getElementById('creg-esc-'+k+'-bar');
+    if(ep){ep.textContent=p+'%';ep.style.color=cor;}
+    if(ei){ei.textContent=fmt(rc)+' de '+fmt(rt)+' escolas com PAF enviado';}
+    if(eb){eb.style.width=p+'%';eb.style.background=cor;}
+  });
+}
+
+function aplicarFiltroEscReg(reg){
+  var sel=document.getElementById('fesc-reg');
+  if(sel){sel.value=reg;filtrarEscolas();}
 }
 
 function limparFiltrosEsc(){

@@ -481,7 +481,7 @@ var UF_NOMES={'AC':'Acre','AL':'Alagoas','AM':'Amazonas','AP':'Amapá','BA':'Bah
 // ===== UTILS =====
 function fmt(n){return n==null?'—':Number(n).toLocaleString('pt-BR');}
 function pct(a,b){return b?Math.round(a/b*100)+'%':'0%';}
-function mkKey(s){return (s||'').toLowerCase().replace(/[^a-z]/g,'');}
+function mkKey(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
 function nP(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
 function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
@@ -645,6 +645,11 @@ function parseTxtConfig(txt){
 function aplicarMeta(m){
   if(!m)return;
   function s(id,v){var el=document.getElementById(id);if(el)el.textContent=v||'—';}
+  // Preencher dt-ref com processado_em se API do GitHub não responder
+  if(m.processado_em){
+    var el=document.getElementById('dt-ref');
+    if(el&&(el.textContent==='carregando...'||el.textContent===''))el.textContent=m.processado_em;
+  }
   s('meta-paf',m.paf);s('meta-fnde',m.fnde);s('meta-medidor',m.medidor);s('meta-carga',m.carga_main);s('meta-proc',m.processado_em);
 }
 

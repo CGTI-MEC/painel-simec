@@ -225,7 +225,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
 <div class="body">
 
 <div id="tab-nacional">
-  <div class="sec">Visão Geral &mdash; Brasil &middot; Etapas 1 e 2 no SIMEC (Redes)</div>
+  <div class="sec" id="sec-nacional-titulo">Visão Geral &mdash; Brasil &middot; Etapas 1 e 2 no SIMEC (Redes)</div>
   <div class="tnac-wrap"><table class="tnac"><thead><tr><th class="th-e1" style="width:36%">Status SIMEC<br><strong>Etapa 1 &mdash; Módulo ENEC</strong></th><th class="th-e1" style="width:15%">Redes<br>Municipais</th><th class="th-e1" style="width:15%">Redes<br>Estaduais</th><th class="th-e1">UFs Estaduais</th></tr></thead><tbody id="tb-nac-e1"><tr><td colspan="4" class="loading">Carregando...</td></tr></tbody></table></div>
   <div class="tnac-wrap"><table class="tnac"><thead><tr><th class="th-e2" style="width:36%">Status SIMEC<br><strong>Etapa 2 &mdash; Módulo Educação Conectada (PIEC)</strong></th><th class="th-e2" style="width:15%">Redes<br>Municipais</th><th class="th-e2" style="width:15%">Redes<br>Estaduais</th><th class="th-e2">UFs Estaduais</th></tr></thead><tbody id="tb-nac-e2"><tr><td colspan="4" class="loading">Carregando...</td></tr></tbody></table></div>
   <div class="sec">Visão Geral &mdash; Brasil &middot; Etapa 3 no PDDE Interativo (Escolas)</div>
@@ -693,8 +693,7 @@ function filtrarNacRegiao(reg){
 var filtroEscRegiao = '';
 function filtrarEscRegiao(reg){
   filtroEscRegiao = (filtroEscRegiao===reg)?'':reg;
-  var REGS={'Norte':['AC','AM','AP','PA','RO','RR','TO'],'Nordeste':['AL','BA','CE','MA','PB','PE','PI','RN','SE'],'Centro-Oeste':['DF','GO','MT','MS'],'Sudeste':['ES','MG','RJ','SP'],'Sul':['PR','RS','SC']};
-  // destacar cards de região escolas (na aba Nacional e na aba PDDE)
+  // Destacar cards de região escolas (aba Nacional e aba PDDE)
   ['creg-ne-','creg-esc-'].forEach(function(pfx){
     ['norte','nordeste','centrooeste','sudeste','sul'].forEach(function(r){
       var k=reg.replace(/[^a-zA-Z]/g,'').toLowerCase();
@@ -704,8 +703,35 @@ function filtrarEscRegiao(reg){
       if(filtroEscRegiao){el.classList.add(r===k?'creg-ativa':'creg-dimm');}
     });
   });
-  // Mudar para aba escolas se chamado da nacional
-  filtrarEscolas();
+  // Navegar para a aba Escolas
+  var btnEscolas=document.querySelector('.tab[onclick*="escolas"]');
+  if(btnEscolas)showTab('escolas',btnEscolas);
+  // Se dados já carregados: filtrar e rolar para os filtros
+  if(dadosEscolas.length){
+    filtrarEscolas();
+    setTimeout(function(){
+      var el=document.getElementById('filtros-esc');
+      if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+    },120);
+  }
+  // Se dados ainda não chegaram: o flag filtroEscRegiao está setado.
+  // renderEscolasResumo() é chamado quando carregam e chama filtrarEscolas() via atualizarRegiaoEsc.
+  // Garantia extra: reagendar com poll curto
+  if(!dadosEscolas.length){
+    var tentativas=0;
+    var poll=setInterval(function(){
+      tentativas++;
+      if(dadosEscolas.length){
+        clearInterval(poll);
+        filtrarEscolas();
+        setTimeout(function(){
+          var el=document.getElementById('filtros-esc');
+          if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+        },120);
+      }
+      if(tentativas>60)clearInterval(poll); // timeout 30s
+    },500);
+  }
 }
 
 // ===== LISTA INEP/IBGE REDES =====
@@ -821,18 +847,26 @@ function renderNacional(){
   var s2=['Em análise do MEC','Em preenchimento','Não Iniciado'];
   var t1=document.getElementById('tb-nac-e1'),t2=document.getElementById('tb-nac-e2'),t3=document.getElementById('tb-nac-e3');
   t1.innerHTML='';t2.innerHTML='';t3.innerHTML='';
-  var tM=dadosMunicipais.length,tE=dadosEstaduais.length;
+  // Melhoria 10 / fix: aplicar filtro de região se ativo
+  var REGS_N={'Norte':['AC','AM','AP','PA','RO','RR','TO'],'Nordeste':['AL','BA','CE','MA','PB','PE','PI','RN','SE'],'Centro-Oeste':['DF','GO','MT','MS'],'Sudeste':['ES','MG','RJ','SP'],'Sul':['PR','RS','SC']};
+  var ufsRegiao=filtroNacRegiao?REGS_N[filtroNacRegiao]:null;
+  var mun=ufsRegiao?dadosMunicipais.filter(function(r){return ufsRegiao.indexOf(r.uf)>=0;}):dadosMunicipais;
+  var est=ufsRegiao?dadosEstaduais.filter(function(r){return ufsRegiao.indexOf(r.uf)>=0;}):dadosEstaduais;
+  var tM=mun.length, tE=est.length;
+  // Título dinâmico
+  var secEl=document.getElementById('sec-nacional-titulo');
+  if(secEl)secEl.textContent='Visão Geral — Brasil · Etapas 1 e 2 no SIMEC'+(filtroNacRegiao?' · Região: '+filtroNacRegiao:'');
   s1.forEach(function(s){
-    var nm=dadosMunicipais.filter(function(r){return r.enec===s;}).length;
-    var ne=dadosEstaduais.filter(function(r){return r.enec===s;}).length;
-    var ufs=dadosEstaduais.filter(function(r){return r.enec===s;}).map(function(r){return r.uf;}).sort().join(', ');
+    var nm=mun.filter(function(r){return r.enec===s;}).length;
+    var ne=est.filter(function(r){return r.enec===s;}).length;
+    var ufs=est.filter(function(r){return r.enec===s;}).map(function(r){return r.uf;}).sort().join(', ');
     t1.innerHTML+='<tr><td>'+bdg(s)+'</td><td><span class="nb">'+fmt(nm)+'</span><span class="cl">'+pct(nm,tM)+'</span></td><td><span class="nb">'+fmt(ne)+'</span><span class="cl">'+pct(ne,tE)+'</span></td><td style="font-size:10px;color:#666">'+ufs+'</td></tr>';
   });
   t1.innerHTML+='<tr><td>Total</td><td>'+fmt(tM)+'</td><td>'+fmt(tE)+'</td><td></td></tr>';
   s2.forEach(function(s){
-    var nm=dadosMunicipais.filter(function(r){return nP(r.piec)===nP(s);}).length;
-    var ne=dadosEstaduais.filter(function(r){return nP(r.piec)===nP(s);}).length;
-    var ufs=dadosEstaduais.filter(function(r){return nP(r.piec)===nP(s);}).map(function(r){return r.uf;}).sort().join(', ');
+    var nm=mun.filter(function(r){return nP(r.piec)===nP(s);}).length;
+    var ne=est.filter(function(r){return nP(r.piec)===nP(s);}).length;
+    var ufs=est.filter(function(r){return nP(r.piec)===nP(s);}).map(function(r){return r.uf;}).sort().join(', ');
     t2.innerHTML+='<tr><td>'+bdg(s)+'</td><td><span class="nb">'+fmt(nm)+'</span><span class="cl">'+pct(nm,tM)+'</span></td><td><span class="nb">'+fmt(ne)+'</span><span class="cl">'+pct(ne,tE)+'</span></td><td style="font-size:10px;color:#666">'+ufs+'</td></tr>';
   });
   t2.innerHTML+='<tr><td>Total</td><td>'+fmt(tM)+'</td><td>'+fmt(tE)+'</td><td></td></tr>';
@@ -1140,6 +1174,10 @@ function renderEscolasResumo(){
   renderNacE3();
   // Atualizar cards região na aba PDDE
   atualizarRegiaoEscPdde();
+  // Se havia filtro de região pendente (clicado antes dos dados carregarem), aplicar agora
+  if(filtroEscRegiao){
+    filtrarEscolas();
+  }
 }
 
 function populaUfsEsc(){

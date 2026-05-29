@@ -138,7 +138,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
 .fc-breve{font-size:11px;font-weight:700;color:#aaa;background:#f5f5f5;padding:3px 8px;border-radius:5px;display:inline-block;margin-top:4px;}
 .prio-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px;}
 .prio-card{border-radius:10px;padding:16px 18px;cursor:pointer;transition:all .15s;border:2px solid transparent;}
-.prio-card.ativo{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.2);}
+.prio-card.ativo{transform:translateY(-2px);box-shadow:0 0 0 4px #fff,0 0 0 7px #003CFF!important;outline:none;}
+.prio-card:not(.ativo){opacity:0.55;transform:scale(0.97);}
+.prio-cards:not(:has(.ativo)) .prio-card{opacity:1;transform:none;}
 .prio-alta{background:linear-gradient(135deg,#c0392b,#e74c3c);color:#fff;}
 .prio-media{background:linear-gradient(135deg,#c98000,#f39c12);color:#fff;}
 .prio-baixa{background:linear-gradient(135deg,#1a8f3f,#27ae60);color:#fff;}
@@ -682,9 +684,9 @@ function setMselLabel(dropId,btnId,ph){
   var el=document.getElementById(btnId);
   if(el)el.textContent=vals.length===0?ph:(vals.length===1?vals[0]:vals.length+' selecionados');
 }
-var MSEL_LABELS_M = {'fm-en':'Status Etapa 1: Todos','fm-pi':'Status Etapa 2: Todos','fm-pri':'Prioridade: Todas'};
+var MSEL_LABELS_M = {'fm-en':'Status Etapa 1: Todos','fm-pi':'Status Etapa 2: Todos','fm-pri':'Prioridade: Todas','fm-esp':'Especiais: Todos','fm-geo':'Geo-filtros: Todos'};
 var MSEL_LABELS_ESC = {'fesc-art12':'Classificação: Todas','fesc-paf':'Status PDDE: Todos','fesc-pri':'Prioridade: Todas','fesc-loc':'Localização: Todas','fesc-cat':'Categoria: Todas','fesc-med':'Medidor: Todos','fesc-fnde':'FNDE: Todos','fesc-simec':'Status SIMEC: Todos','fesc-eleg':'Elegível: Todos','fesc-esp':'Especiais: Todos','fesc-geo':'Geo-filtros: Todos'};
-var MSEL_LABELS_E = {'fe-esp':'Especiais: Todos'};
+var MSEL_LABELS_E = {'fe-esp':'Especiais: Todos','fe-geo':'Geo-filtros: Todos'};
 function mselChange(f){setMselLabel('drop-'+f,'btn-'+f,MSEL_LABELS_M[f]||'Todos');filtrarM();}
 function mselChangeEsc(f){setMselLabel('drop-'+f,'btn-'+f,MSEL_LABELS_ESC[f]||'Todos');filtrarEscolas();}
 function mselChangeE(f){setMselLabel('drop-'+f,'btn-'+f,MSEL_LABELS_E[f]||'Todos');filtrarE();}
@@ -983,7 +985,10 @@ function filtrarE(){
   if(!dadosEstaduais.length)return;
   var reg=document.getElementById('fe-reg').value,uf=document.getElementById('fe-uf').value;
   var en=document.getElementById('fe-en').value,pi=document.getElementById('fe-pi').value,si=document.getElementById('fe-si').value;
-  var ativo=reg||uf||en||pi||si;
+  var espE=isAdmin?getMsel('drop-fe-esp'):[];
+  var geoE=isAdmin?getMsel('drop-fe-geo'):[];
+  var inepListaE=isAdmin&&document.getElementById('fe-inep-lista')?document.getElementById('fe-inep-lista').value.trim():'';
+  var ativo=reg||uf||en||pi||si||espE.length||geoE.length||inepListaE;
   document.getElementById('btn-limpar-e').style.display=ativo?'inline-block':'none';
   document.getElementById('btn-e').className='btn-dl'+(ativo?' ativo':'');
   document.getElementById('btn-ex').className='btn-dl'+(ativo?' ativo':'');
@@ -1010,6 +1015,7 @@ function limparFiltrosE(){
     var el=document.getElementById('fe-inep-lista');if(el)el.value='';
     var ec=document.getElementById('fe-inep-count');if(ec)ec.textContent='';
     clearMsel('drop-fe-esp');setMselLabel('drop-fe-esp','btn-fe-esp','Especiais: Todos');
+    clearMsel('drop-fe-geo');setMselLabel('drop-fe-geo','btn-fe-geo','Geo-filtros: Todos');
   }
   filtrarE();
 }
@@ -1106,7 +1112,10 @@ function filtrarM(){
   var reg=document.getElementById('fm-reg').value,uf=document.getElementById('fm-uf').value;
   var mun=document.getElementById('fm-mun').value.toLowerCase().trim();
   var en=getMsel('drop-fm-en'),pi=getMsel('drop-fm-pi'),si=document.getElementById('fm-si').value,pri=getMsel('drop-fm-pri');
-  var ativo=reg||uf||mun||en.length||pi.length||si||pri.length;
+  var espM=isAdmin?getMsel('drop-fm-esp'):[];
+  var geoM=isAdmin?getMsel('drop-fm-geo'):[];
+  var inepListaM=isAdmin&&document.getElementById('fm-inep-lista')?document.getElementById('fm-inep-lista').value.trim():'';
+  var ativo=reg||uf||mun||en.length||pi.length||si||pri.length||espM.length||geoM.length||inepListaM;
   document.getElementById('btn-limpar-m').style.display=ativo?'inline-block':'none';
   document.getElementById('btn-m').className='btn-dl'+(ativo?' ativo':'');
   document.getElementById('btn-mx').className='btn-dl'+(ativo?' ativo':'');
@@ -1135,6 +1144,7 @@ function limparFiltrosM(){
     var el=document.getElementById('fm-inep-lista');if(el)el.value='';
     var ec=document.getElementById('fm-inep-count');if(ec)ec.textContent='';
     clearMsel('drop-fm-esp');setMselLabel('drop-fm-esp','btn-fm-esp','Especiais: Todos');
+    clearMsel('drop-fm-geo');setMselLabel('drop-fm-geo','btn-fm-geo','Geo-filtros: Todos');
   }
   filtrarM();
 }
@@ -1361,15 +1371,17 @@ function filtrarEscolas(){
       var ufsReg=REGS_ESC[regiaoAtiva]||[];
       if(ufsReg.indexOf(r.uf)<0)return false;
     }
-    // Melhoria 7: filtro parcela mínima link
-    if(parcelaMin>0){var vm=parseFloat(r.valor_mensal||0);if(vm<parcelaMin)return false;}
+    // Melhoria 7: filtro parcela mínima link — só aplica se diferente do padrão 50
+    if(parcelaMin>0&&parcelaMin!==50){var vm=parseFloat(r.valor_mensal||0);if(vm<parcelaMin)return false;}
     // Melhoria 5: filtro lista INEP
     if(listaInepEsc.length&&listaInepEsc.indexOf(r.inep)<0)return false;
     return true;
   });
 
   var fescRegiao=document.getElementById('fesc-regiao')?document.getElementById('fesc-regiao').value:'';
-  var ativo=esf||uf||mun||busca||fescRegiao||paf.length||pri.length||loc.length||cat.length||med.length||fnde.length||simec.length||eleg.length||art12.length||esp.length||geo.length||atFunilSet.size>0||atPrioSet.size>0||filtroEscRegiao||parcelaMin>0||listaInepEsc.length;
+  var PARCELA_PADRAO=50;
+  var parcelaAtiva=isAdmin&&parcelaMin>0&&parcelaMin!==PARCELA_PADRAO;
+  var ativo=esf||uf||mun||busca||fescRegiao||paf.length||pri.length||loc.length||cat.length||med.length||fnde.length||simec.length||eleg.length||art12.length||esp.length||geo.length||atFunilSet.size>0||atPrioSet.size>0||filtroEscRegiao||parcelaAtiva||listaInepEsc.length;
   document.getElementById('btn-limpar-esc').style.display=ativo?'inline-block':'none';
   document.getElementById('btn-esc-csv').className='btn-dl'+(ativo?' ativo':'');
   document.getElementById('btn-esc-xlsx').className='btn-dl'+(ativo?' ativo':'');

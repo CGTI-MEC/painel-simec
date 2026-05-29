@@ -113,6 +113,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
 .bpri-m{background:#e8f4fd;color:#1a6fa8;border:1px solid #90caf9;font-size:9px;font-weight:700;padding:2px 7px;border-radius:8px;display:inline-block;white-space:nowrap;}
 .bpri-b{background:#d4edda;color:#155724;border:1px solid #a5d6a7;font-size:9px;font-weight:700;padding:2px 7px;border-radius:8px;display:inline-block;white-space:nowrap;}
 .tfoot{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#f7f9ff;border-top:.5px solid #e0e0e0;flex-wrap:wrap;gap:8px;}
+.ttop{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;font-size:11px;color:#666;border-bottom:1px solid #eee;background:#fafafa;border-radius:8px 8px 0 0;}
 .tfoot-info{font-size:11px;color:#666;}
 .tfoot-info strong{color:#003CFF;font-size:13px;}
 .btn-dl{background:#003CFF;color:#fff;font-size:11px;font-weight:700;padding:6px 16px;border-radius:6px;border:none;cursor:pointer;opacity:.35;pointer-events:none;}
@@ -148,6 +149,12 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
 .meta-item{font-size:10px;color:#888;}
 .meta-item strong{color:#333;font-weight:700;}
 .cruzamentos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;}
+.funil-card.ativo,.prio-card.ativo,.crz-card.ativo{
+  border:2px solid #003CFF!important;
+  box-shadow:0 2px 14px rgba(0,60,255,.18);
+  background:#f0f4ff;
+}
+.funil-card.ativo .funil-num,.prio-card.ativo .pe-num{opacity:1;}
 .crz-card{background:#fff;border-radius:10px;padding:12px 14px;border:.5px solid #e0e0e0;cursor:pointer;transition:all .15s;}
 .crz-card:hover{border-color:#003CFF;}
 .crz-card.ativo{border-color:#003CFF;background:#f0f4ff;}
@@ -294,9 +301,11 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
   <div class="filtros admin-only" id="filtros-e-admin">
     <span class="flbl" style="color:#003CFF">Admin:</span>
     <div class="msel-wrap"><div class="msel-btn" id="btn-fe-esp" onclick="toggleMsel('drop-fe-esp')">Especiais: Todos</div><div class="msel-drop" id="drop-fe-esp"><label class="msel-item"><input type="checkbox" value="indigena" onchange="mselChangeE('fe-esp')"> Indígena</label><label class="msel-item"><input type="checkbox" value="quilombola" onchange="mselChangeE('fe-esp')"> Quilombola</label><label class="msel-item"><input type="checkbox" value="campo" onchange="mselChangeE('fe-esp')"> Escola do Campo</label><label class="msel-item"><input type="checkbox" value="infantil" onchange="mselChangeE('fe-esp')"> Ed. Infantil Exclusiva</label></div></div>
+    <div class="msel-wrap"><div class="msel-btn" id="btn-fe-geo" onclick="toggleMsel('drop-fe-geo')">Geo-filtros: Todos</div><div class="msel-drop" id="drop-fe-geo"><label class="msel-item"><input type="checkbox" value="capital" onchange="mselChangeE('fe-geo')"> Capital</label><label class="msel-item"><input type="checkbox" value="marajo" onchange="mselChangeE('fe-geo')"> Arquipélago do Marajó</label></div></div>
     <div style="flex:1"><input id="fe-inep-lista" placeholder="Colar INEPs ou Cód. IBGE — resolve a rede estadual..." style="width:100%;font-size:11px;padding:5px 8px;border:.5px solid #ccc;border-radius:6px;" oninput="aplicarListaInepE()" title="Cole INEPs (8 dígitos) ou códigos IBGE (7 dígitos)"><span id="fe-inep-count" style="font-size:9px;color:#888;margin-left:4px"></span></div>
   </div>
   <div class="twrap">
+    <div class="ttop"><span class="tfoot-info">Exibindo <strong id="ct-e-topo">&mdash;</strong> redes estaduais</span></div>
     <table class="tmicro"><thead><tr><th style="width:6%">UF</th><th style="width:24%">Rede Estadual</th><th style="width:22%">Etapa 1 &mdash; ENEC</th><th style="width:24%">Etapa 2 &mdash; PIEC</th><th>Etapa Simec Rede</th></tr></thead><tbody id="tb-e"></tbody></table>
     <div class="tfoot"><div class="tfoot-info">Exibindo <strong id="ct-e">&mdash;</strong> redes estaduais</div><div style="display:flex;gap:6px;"><button class="btn-dl" id="btn-e">&#11123; .csv</button><button class="btn-dl" id="btn-ex">&#11123; .xlsx</button></div></div>
     <div class="legenda"><div class="leg"><div class="ldot" style="background:#1a8f3f"></div>Em análise do MEC = Concluída</div><div class="leg"><div class="ldot" style="background:#003CFF"></div>Em preenchimento</div><div class="leg"><div class="ldot" style="background:#c98000"></div>Iniciado</div><div class="leg"><div class="ldot" style="background:#c0392b"></div>Não Iniciado</div></div>
@@ -349,9 +358,11 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
   <div class="filtros admin-only" id="filtros-m-admin">
     <span class="flbl" style="color:#003CFF">Admin:</span>
     <div class="msel-wrap"><div class="msel-btn" id="btn-fm-esp" onclick="toggleMsel('drop-fm-esp')">Especiais: Todos</div><div class="msel-drop" id="drop-fm-esp"><label class="msel-item"><input type="checkbox" value="indigena" onchange="mselChangeM('fm-esp')"> Indígena</label><label class="msel-item"><input type="checkbox" value="quilombola" onchange="mselChangeM('fm-esp')"> Quilombola</label><label class="msel-item"><input type="checkbox" value="campo" onchange="mselChangeM('fm-esp')"> Escola do Campo</label><label class="msel-item"><input type="checkbox" value="infantil" onchange="mselChangeM('fm-esp')"> Ed. Infantil Exclusiva</label></div></div>
+    <div class="msel-wrap"><div class="msel-btn" id="btn-fm-geo" onclick="toggleMsel('drop-fm-geo')">Geo-filtros: Todos</div><div class="msel-drop" id="drop-fm-geo"><label class="msel-item"><input type="checkbox" value="capital" onchange="mselChangeM('fm-geo')"> Capital</label><label class="msel-item"><input type="checkbox" value="marajo" onchange="mselChangeM('fm-geo')"> Arquipélago do Marajó</label></div></div>
     <div style="flex:1"><input id="fm-inep-lista" placeholder="Colar INEPs ou Cód. IBGE — resolve a rede municipal..." style="width:100%;font-size:11px;padding:5px 8px;border:.5px solid #ccc;border-radius:6px;" oninput="aplicarListaInepM()" title="Cole INEPs (8 dígitos) ou códigos IBGE (7 dígitos)"><span id="fm-inep-count" style="font-size:9px;color:#888;margin-left:4px"></span></div>
   </div>
   <div class="twrap">
+    <div class="ttop"><span class="tfoot-info">Exibindo <strong id="ct-m-topo">&mdash;</strong> redes municipais</span></div>
     <table class="tmicro"><thead><tr><th style="width:6%">UF</th><th style="width:20%">Município</th><th style="width:20%">Etapa 1 &mdash; ENEC</th><th style="width:22%">Etapa 2 &mdash; PIEC</th><th style="width:14%">Etapa Simec Rede</th><th style="width:14%">Prioridade</th></tr></thead><tbody id="tb-m"></tbody></table>
     <div class="tfoot"><div class="tfoot-info">Exibindo <strong id="ct-m">&mdash;</strong> redes municipais <span id="note-m" style="color:#aaa;font-size:10px">(aplique um filtro)</span></div><div style="display:flex;gap:6px;"><button class="btn-dl" id="btn-m">&#11123; .csv</button><button class="btn-dl" id="btn-mx">&#11123; .xlsx</button></div></div>
     <div class="legenda"><div class="leg"><div class="ldot" style="background:#1a8f3f"></div>Em análise do MEC = Concluída</div><div class="leg"><div class="ldot" style="background:#003CFF"></div>Em preenchimento</div><div class="leg"><div class="ldot" style="background:#c98000"></div>Iniciado</div><div class="leg"><div class="ldot" style="background:#c0392b"></div>Não Iniciado</div><div class="leg"><div class="ldot" style="background:#003CFF"></div>&#10003; Concluída = ambas etapas &ldquo;Em análise do MEC&rdquo;</div></div>
@@ -370,7 +381,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
 
   <div class="sec">Funil do Processo &mdash; Escolas no PDDE Educação Conectada</div>
   <div class="funil">
-    <div class="funil-card" onclick="filtrarEscolasCard('todos')">
+    <div class="funil-card" data-card-tipo="todos" onclick="filtrarEscolasCard('todos')">
       <div class="fc-lbl">Total de escolas no PDDE Educação Conectada</div>
       <div class="fc-num" id="fe-total">&mdash;</div>
       <div class="fc-sub">Universo das escolas</div>
@@ -380,7 +391,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
       <div class="fc-breve">Em breve</div>
       <div class="fc-sub" style="margin-top:6px">Campo reservado</div>
     </div>
-    <div class="funil-card" onclick="filtrarEscolasCard('elegiveis')">
+    <div class="funil-card" data-card-tipo="elegiveis" onclick="filtrarEscolasCard('elegiveis')">
       <div class="fc-lbl">Selecionadas pela Rede + elegíveis à PIEC</div>
       <div class="fc-num" id="fe-elegiveis">&mdash;</div>
       <div class="fc-sub">Situação SIMEC: Selecionado + Valor &gt; 0</div>
@@ -390,7 +401,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
       <div class="fc-breve">Em breve</div>
       <div class="fc-sub" style="margin-top:6px">Campo reservado</div>
     </div>
-    <div class="funil-card" onclick="filtrarEscolasCard('paf_enviado')">
+    <div class="funil-card" data-card-tipo="paf_enviado" onclick="filtrarEscolasCard('paf_enviado')">
       <div class="fc-lbl">PAF enviado ao MEC</div>
       <div class="fc-num" id="fe-paf-enviado">&mdash;</div>
       <div class="fc-sub">Status PDDE: Em análise do MEC</div>
@@ -399,22 +410,22 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
 
   <div class="sec">Requisitos Paralelos</div>
   <div class="cards4">
-    <div class="ccard c-ve click" onclick="filtrarEscolasCard('com_medidor')"><div class="cc-lbl">Com medidor ativo (SIMET/NIC.br)</div><div class="cc-num" id="fe-com-medidor">&mdash;</div></div>
-    <div class="ccard c-vm click" onclick="filtrarEscolasCard('sem_medidor')"><div class="cc-lbl">Sem medidor ativo</div><div class="cc-num" id="fe-sem-medidor">&mdash;</div></div>
-    <div class="ccard c-ve click" onclick="filtrarEscolasCard('aptas_fnde')"><div class="cc-lbl">Aptas no FNDE (sem pendência)</div><div class="cc-num" id="fe-aptas-fnde">&mdash;</div></div>
-    <div class="ccard c-vm click" onclick="filtrarEscolasCard('pendencia_fnde')"><div class="cc-lbl">Com pendência FNDE</div><div class="cc-num" id="fe-pendencia-fnde">&mdash;</div></div>
+    <div class="ccard c-ve click" data-card-tipo="com_medidor" onclick="filtrarEscolasCard('com_medidor')"><div class="cc-lbl">Com medidor ativo (SIMET/NIC.br)</div><div class="cc-num" id="fe-com-medidor">&mdash;</div></div>
+    <div class="ccard c-vm click" data-card-tipo="sem_medidor" onclick="filtrarEscolasCard('sem_medidor')"><div class="cc-lbl">Sem medidor ativo</div><div class="cc-num" id="fe-sem-medidor">&mdash;</div></div>
+    <div class="ccard c-ve click" data-card-tipo="aptas_fnde" onclick="filtrarEscolasCard('aptas_fnde')"><div class="cc-lbl">Aptas no FNDE (sem pendência)</div><div class="cc-num" id="fe-aptas-fnde">&mdash;</div></div>
+    <div class="ccard c-vm click" data-card-tipo="pendencia_fnde" onclick="filtrarEscolasCard('pendencia_fnde')"><div class="cc-lbl">Com pendência FNDE</div><div class="cc-num" id="fe-pendencia-fnde">&mdash;</div></div>
   </div>
 
   <div class="sec">Cruzamentos</div>
   <div class="cruzamentos">
-    <div class="crz-card" onclick="filtrarEscolasCard('crz1')"><div class="crz-num" id="crz-paf-fnde">&mdash;</div><div class="crz-lbl">PAF enviado + Apta FNDE</div></div>
-    <div class="crz-card" onclick="filtrarEscolasCard('crz2')"><div class="crz-num" id="crz-paf-medidor">&mdash;</div><div class="crz-lbl">PAF enviado + Medidor ativo</div></div>
-    <div class="crz-card" onclick="filtrarEscolasCard('crz3')"><div class="crz-num" id="crz-paf-tudo">&mdash;</div><div class="crz-lbl">PAF enviado + FNDE apta + Medidor ativo</div></div>
+    <div class="crz-card" data-card-tipo="crz1" onclick="filtrarEscolasCard('crz1')"><div class="crz-num" id="crz-paf-fnde">&mdash;</div><div class="crz-lbl">PAF enviado + Apta FNDE</div></div>
+    <div class="crz-card" data-card-tipo="crz2" onclick="filtrarEscolasCard('crz2')"><div class="crz-num" id="crz-paf-medidor">&mdash;</div><div class="crz-lbl">PAF enviado + Medidor ativo</div></div>
+    <div class="crz-card" data-card-tipo="crz3" onclick="filtrarEscolasCard('crz3')"><div class="crz-num" id="crz-paf-tudo">&mdash;</div><div class="crz-lbl">PAF enviado + FNDE apta + Medidor ativo</div></div>
   </div>
   <div class="cruzamentos admin-only" id="cruzamentos-admin">
-    <div class="crz-card" onclick="filtrarEscolasCard('crz4')"><div class="crz-num" id="crz-todos-criterios">&mdash;</div><div class="crz-lbl">Atendem todos os critérios de classificação</div></div>
-    <div class="crz-card" onclick="filtrarEscolasCard('tem_link')"><div class="crz-num" id="crz-tem-link">&mdash;</div><div class="crz-lbl">Alocaram recursos para link de internet</div></div>
-    <div></div>
+    <div class="crz-card" data-card-tipo="crz4" onclick="filtrarEscolasCard('crz4')"><div class="crz-num" id="crz-todos-criterios">&mdash;</div><div class="crz-lbl">Atendem todos os critérios de classificação</div></div>
+    <div class="crz-card" data-card-tipo="tem_link" onclick="filtrarEscolasCard('tem_link')"><div class="crz-num" id="crz-tem-link">&mdash;</div><div class="crz-lbl">Alocaram recursos para link de internet</div></div>
+    <div class="crz-card" data-card-tipo="link_fnde" onclick="filtrarEscolasCard('link_fnde')"><div class="crz-num" id="crz-link-fnde">&mdash;</div><div class="crz-lbl">Link alocado + Apta FNDE</div></div>
   </div>
 
   <!-- Melhoria 6: Cards financeiros — admin only -->
@@ -440,9 +451,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
 
   <div class="sec">Prioridade de Contato</div>
   <div class="prio-cards">
-    <div class="prio-card prio-alta" onclick="filtrarEscolasCard('pri_alta')"><div class="pc-num" id="pe-alta">&mdash;</div><div class="pc-lbl">&#9888;&#65039; Alta Prioridade</div><div class="pc-desc">INEC 0-2 &bull; Pode alocar link</div></div>
-    <div class="prio-card prio-media" onclick="filtrarEscolasCard('pri_media')"><div class="pc-num" id="pe-media">&mdash;</div><div class="pc-lbl">Média Prioridade</div><div class="pc-desc">INEC 3 ou depende de PIEC</div></div>
-    <div class="prio-card prio-baixa" onclick="filtrarEscolasCard('pri_baixa')"><div class="pc-num" id="pe-baixa">&mdash;</div><div class="pc-lbl">Baixa Prioridade</div><div class="pc-desc">INEC 4-5 com fonte própria</div></div>
+    <div class="prio-card prio-alta" data-card-tipo="pri_alta" onclick="filtrarEscolasCard('pri_alta')"><div class="pc-num" id="pe-alta">&mdash;</div><div class="pc-lbl">&#9888;&#65039; Alta Prioridade</div><div class="pc-desc">INEC 0-2 &bull; Pode alocar link</div></div>
+    <div class="prio-card prio-media" data-card-tipo="pri_media" onclick="filtrarEscolasCard('pri_media')"><div class="pc-num" id="pe-media">&mdash;</div><div class="pc-lbl">Média Prioridade</div><div class="pc-desc">INEC 3 ou depende de PIEC</div></div>
+    <div class="prio-card prio-baixa" data-card-tipo="pri_baixa" onclick="filtrarEscolasCard('pri_baixa')"><div class="pc-num" id="pe-baixa">&mdash;</div><div class="pc-lbl">Baixa Prioridade</div><div class="pc-desc">INEC 4-5 com fonte própria</div></div>
   </div>
 
   <div class="sec">Filtros</div>
@@ -455,6 +466,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
   </div>
   <div class="filtros">
     <span class="flbl">Adicionais:</span>
+    <div class="sel-wrap"><select id="fesc-regiao" onchange="filtrarEscolas()" style="font-size:11px;padding:5px 8px;border:.5px solid #ccc;border-radius:6px;"><option value="">Região: Todas</option><option value="Norte">Norte</option><option value="Nordeste">Nordeste</option><option value="Centro-Oeste">Centro-Oeste</option><option value="Sudeste">Sudeste</option><option value="Sul">Sul</option></select></div>
     <div class="msel-wrap"><div class="msel-btn" id="btn-fesc-paf" onclick="toggleMsel('drop-fesc-paf')">Status PDDE: Todos</div><div class="msel-drop" id="drop-fesc-paf"><label class="msel-item"><input type="checkbox" value="Em análise do MEC" onchange="mselChangeEsc('fesc-paf')"> Em análise do MEC</label><label class="msel-item"><input type="checkbox" value="Em cadastramento" onchange="mselChangeEsc('fesc-paf')"> Em cadastramento</label><label class="msel-item"><input type="checkbox" value="Não aceitou o Apoio" onchange="mselChangeEsc('fesc-paf')"> Não aceitou o Apoio</label><label class="msel-item"><input type="checkbox" value="Não iniciado" onchange="mselChangeEsc('fesc-paf')"> Não iniciado</label></div></div>
     <div class="msel-wrap"><div class="msel-btn" id="btn-fesc-pri" onclick="toggleMsel('drop-fesc-pri')">Prioridade: Todas</div><div class="msel-drop" id="drop-fesc-pri"><label class="msel-item"><input type="checkbox" value="Alta" onchange="mselChangeEsc('fesc-pri')"> &#9888;&#65039; Alta</label><label class="msel-item"><input type="checkbox" value="Média" onchange="mselChangeEsc('fesc-pri')"> Média</label><label class="msel-item"><input type="checkbox" value="Baixa" onchange="mselChangeEsc('fesc-pri')"> Baixa</label><label class="msel-item"><input type="checkbox" value="—" onchange="mselChangeEsc('fesc-pri')"> Atendida Enec</label></div></div>
     <div class="msel-wrap"><div class="msel-btn" id="btn-fesc-loc" onclick="toggleMsel('drop-fesc-loc')">Localização: Todas</div><div class="msel-drop" id="drop-fesc-loc"><label class="msel-item"><input type="checkbox" value="Urbana" onchange="mselChangeEsc('fesc-loc')"> Urbana</label><label class="msel-item"><input type="checkbox" value="Rural" onchange="mselChangeEsc('fesc-loc')"> Rural</label></div></div>
@@ -469,6 +481,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
     <span class="flbl" style="color:#003CFF">Admin:</span>
     <div class="msel-wrap"><div class="msel-btn" id="btn-fesc-esp" onclick="toggleMsel('drop-fesc-esp')">Especiais: Todos</div><div class="msel-drop" id="drop-fesc-esp"><label class="msel-item"><input type="checkbox" value="indigena" onchange="mselChangeEsc('fesc-esp')"> Indígena</label><label class="msel-item"><input type="checkbox" value="quilombola" onchange="mselChangeEsc('fesc-esp')"> Quilombola</label><label class="msel-item"><input type="checkbox" value="campo" onchange="mselChangeEsc('fesc-esp')"> Escola do Campo</label><label class="msel-item"><input type="checkbox" value="infantil" onchange="mselChangeEsc('fesc-esp')"> Ed. Infantil Exclusiva</label></div></div>
     <div class="msel-wrap"><div class="msel-btn" id="btn-fesc-geo" onclick="toggleMsel('drop-fesc-geo')">Geo-filtros: Todos</div><div class="msel-drop" id="drop-fesc-geo"><label class="msel-item"><input type="checkbox" value="capital" onchange="mselChangeEsc('fesc-geo')"> Capital</label><label class="msel-item"><input type="checkbox" value="marajo" onchange="mselChangeEsc('fesc-geo')"> Arquipélago do Marajó</label></div></div>
+    <div class="msel-wrap"><div class="msel-btn" id="btn-fesc-art12" onclick="toggleMsel('drop-fesc-art12')">Classificação: Todas</div><div class="msel-drop" id="drop-fesc-art12" style="width:260px"><label class="msel-item" title="Art.12 I — Não contemplada por outra política federal"><input type="checkbox" value="I" onchange="mselChangeEsc('fesc-art12')"> I — Não contemplada</label><label class="msel-item" title="Art.12 II — Alocou recurso para link no PAF"><input type="checkbox" value="II" onchange="mselChangeEsc('fesc-art12')"> II — Alocou recurso p/ link</label><label class="msel-item" title="Art.12 III — Contemplada no exercício anterior (PIEC 2025)"><input type="checkbox" value="III" onchange="mselChangeEsc('fesc-art12')"> III — Contemplada ano anterior</label><label class="msel-item" title="Art.12 IV — Rede concluiu Etapa 1 ENEC no SIMEC"><input type="checkbox" value="IV" onchange="mselChangeEsc('fesc-art12')"> IV — Rede concluiu Etapa 1</label><label class="msel-item" title="Art.12 V — Medidor ativo"><input type="checkbox" value="V" onchange="mselChangeEsc('fesc-art12')"> V — Medidor ativo</label><div style="font-size:9px;color:#888;padding:4px 8px;border-top:1px solid #eee;margin-top:4px">⚠️ Interseção: mostra escolas que atendem TODOS os critérios selecionados</div></div></div>
     <div style="display:flex;align-items:center;gap:6px;flex:1;">
       <label style="font-size:10px;color:#003CFF;font-weight:700;white-space:nowrap">Parcela mín. link R$</label>
       <input type="number" id="fesc-parcela-min" value="50" min="0" step="1" style="width:80px;font-size:11px;padding:5px 6px;border:.5px solid #ccc;border-radius:6px;" oninput="filtrarEscolas()" title="Filtrar escolas com valor mensal do link ≥ este valor">
@@ -480,6 +493,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
   </div>
 
   <div class="twrap">
+    <div class="ttop"><span class="tfoot-info">Exibindo <strong id="ct-esc-topo">&mdash;</strong> escolas</span></div>
     <table class="tmicro"><thead><tr>
       <th style="width:9%">INEP</th>
       <th style="width:15%">Nome da Escola</th>
@@ -537,7 +551,8 @@ var municipiosPrioritarios = {"AC|acrelândia": "A", "AC|assis brasil": "A", "AC
 
 var dadosEstaduais=[], dadosMunicipais=[], ufsMunicipais=[];
 var dadosEscolas=[], fEsc=[], fE=[], fM=[];
-var atFunil='', atPrio='';
+var atFunilSet=new Set(), atPrioSet=new Set();
+var atFunil='', atPrio=''; // legado — sincronizados com os Sets acima
 
 var REGIOES_EST={'Norte':['AC','AM','AP','PA','RO','RR','TO'],'Nordeste':['AL','BA','CE','MA','PB','PE','PI','RN','SE'],'Centro-Oeste':['DF','GO','MT','MS'],'Sudeste':['ES','MG','RJ','SP'],'Sul':['PR','RS','SC']};
 var REGIOES_MUN={'Norte':['AC','AM','AP','PA','RO','RR','TO'],'Nordeste':['AL','BA','CE','MA','PB','PE','PI','RN','SE'],'Centro-Oeste':['GO','MT','MS'],'Sudeste':['ES','MG','RJ','SP'],'Sul':['PR','RS','SC']};
@@ -668,7 +683,7 @@ function setMselLabel(dropId,btnId,ph){
   if(el)el.textContent=vals.length===0?ph:(vals.length===1?vals[0]:vals.length+' selecionados');
 }
 var MSEL_LABELS_M = {'fm-en':'Status Etapa 1: Todos','fm-pi':'Status Etapa 2: Todos','fm-pri':'Prioridade: Todas'};
-var MSEL_LABELS_ESC = {'fesc-paf':'Status PDDE: Todos','fesc-pri':'Prioridade: Todas','fesc-loc':'Localização: Todas','fesc-cat':'Categoria: Todas','fesc-med':'Medidor: Todos','fesc-fnde':'FNDE: Todos','fesc-simec':'Status SIMEC: Todos','fesc-eleg':'Elegível: Todos','fesc-esp':'Especiais: Todos','fesc-geo':'Geo-filtros: Todos'};
+var MSEL_LABELS_ESC = {'fesc-art12':'Classificação: Todas','fesc-paf':'Status PDDE: Todos','fesc-pri':'Prioridade: Todas','fesc-loc':'Localização: Todas','fesc-cat':'Categoria: Todas','fesc-med':'Medidor: Todos','fesc-fnde':'FNDE: Todos','fesc-simec':'Status SIMEC: Todos','fesc-eleg':'Elegível: Todos','fesc-esp':'Especiais: Todos','fesc-geo':'Geo-filtros: Todos'};
 var MSEL_LABELS_E = {'fe-esp':'Especiais: Todos'};
 function mselChange(f){setMselLabel('drop-'+f,'btn-'+f,MSEL_LABELS_M[f]||'Todos');filtrarM();}
 function mselChangeEsc(f){setMselLabel('drop-'+f,'btn-'+f,MSEL_LABELS_ESC[f]||'Todos');filtrarEscolas();}
@@ -987,7 +1002,7 @@ function filtrarE(){
   tb.innerHTML=fE.length===0?'<tr><td colspan="5" style="text-align:center;color:#aaa;padding:20px">Nenhum resultado</td></tr>':fE.map(function(r){
     return '<tr><td><strong>'+r.uf+'</strong></td><td>'+(UF_NOMES[r.uf]||r.uf)+'</td><td>'+bdg(r.enec)+'</td><td>'+bdg(r.piec)+'</td><td>'+bdgS(r.simec)+'</td></tr>';
   }).join('');
-  document.getElementById('ct-e').textContent=fE.length;
+  document.getElementById('ct-e').textContent=fE.length;var cte2=document.getElementById('ct-e-topo');if(cte2)cte2.textContent=fE.length;
 }
 function limparFiltrosE(){
   ['fe-reg','fe-uf','fe-en','fe-pi','fe-si'].forEach(function(id){document.getElementById(id).value='';});
@@ -1000,7 +1015,7 @@ function limparFiltrosE(){
 }
 function aplicarFiltroE(fId,val){limparFiltrosE();document.getElementById(fId).value=val;filtrarE();setTimeout(function(){document.getElementById('filtros-e').scrollIntoView({behavior:'smooth',block:'center'});},120);}
 function aplicarFiltroNenhumaE(){limparFiltrosE();document.getElementById('fe-en').value='Não Iniciado';document.getElementById('fe-pi').value='Não Iniciado';filtrarE();setTimeout(function(){document.getElementById('filtros-e').scrollIntoView({behavior:'smooth',block:'center'});},120);}
-function aplicarFiltroAndamentoE(){limparFiltrosE();fE=dadosEstaduais.filter(function(r){return r.simec!=='Concluída'&&!(nP(r.enec)==='não iniciado'&&nP(r.piec)==='não iniciado');});atualizarCardsE(dadosEstaduais);var tb=document.getElementById('tb-e');tb.innerHTML=fE.map(function(r){return '<tr><td><strong>'+r.uf+'</strong></td><td>'+(UF_NOMES[r.uf]||r.uf)+'</td><td>'+bdg(r.enec)+'</td><td>'+bdg(r.piec)+'</td><td>'+bdgS(r.simec)+'</td></tr>';}).join('');document.getElementById('ct-e').textContent=fE.length;document.getElementById('btn-e').className='btn-dl ativo';document.getElementById('btn-ex').className='btn-dl ativo';document.getElementById('btn-limpar-e').style.display='inline-block';setTimeout(function(){document.getElementById('filtros-e').scrollIntoView({behavior:'smooth',block:'center'});},120);}
+function aplicarFiltroAndamentoE(){limparFiltrosE();fE=dadosEstaduais.filter(function(r){return r.simec!=='Concluída'&&!(nP(r.enec)==='não iniciado'&&nP(r.piec)==='não iniciado');});atualizarCardsE(dadosEstaduais);var tb=document.getElementById('tb-e');tb.innerHTML=fE.map(function(r){return '<tr><td><strong>'+r.uf+'</strong></td><td>'+(UF_NOMES[r.uf]||r.uf)+'</td><td>'+bdg(r.enec)+'</td><td>'+bdg(r.piec)+'</td><td>'+bdgS(r.simec)+'</td></tr>';}).join('');document.getElementById('ct-e').textContent=fE.length;var cte2=document.getElementById('ct-e-topo');if(cte2)cte2.textContent=fE.length;document.getElementById('btn-e').className='btn-dl ativo';document.getElementById('btn-ex').className='btn-dl ativo';document.getElementById('btn-limpar-e').style.display='inline-block';setTimeout(function(){document.getElementById('filtros-e').scrollIntoView({behavior:'smooth',block:'center'});},120);}
 
 // ----- Municipal -----
 function populaUfM(){
@@ -1054,7 +1069,7 @@ function filtrarDadosM(f){
     // Lista INEP/IBGE: filtra pelo co_ibge da rede ou pelo prefixo do INEP
     if(listaInep.length||listaIbge.length){
       var match=false;
-      var ibgeMun=String(r.co_ibge||r.ibge||'');
+      var ibgeMun=String(r.ibge||r.co_ibge||'');
       if(listaIbge.length&&ibgeMun&&listaIbge.indexOf(ibgeMun)>=0)match=true;
       if(!match&&listaInep.length){
         // Verificar se algum INEP da lista pertence a esta rede (mesmo IBGE)
@@ -1084,7 +1099,7 @@ function renderTbM(dados){
   document.getElementById('tb-m').innerHTML=(ex.length===0?'<tr><td colspan="6" style="text-align:center;color:#aaa;padding:20px">Nenhum resultado</td></tr>':ex.map(function(r){
     return '<tr><td><strong>'+r.uf+'</strong></td><td>'+r.municipio+'</td><td>'+bdg(r.enec)+'</td><td>'+bdg(r.piec)+'</td><td>'+bdgS(r.simec)+'</td><td>'+priTagM(r)+'</td></tr>';
   }).join(''))+(dados.length>MAX?'<tr><td colspan="6" style="text-align:center;color:#888;padding:8px;font-size:11px">Exibindo '+MAX+' de '+dados.length+'. Baixe o CSV para todos.</td></tr>':'');
-  document.getElementById('ct-m').textContent=dados.length;
+  document.getElementById('ct-m').textContent=dados.length;var ctm2=document.getElementById('ct-m-topo');if(ctm2)ctm2.textContent=dados.length;
 }
 function filtrarM(){
   if(!dadosMunicipais.length)return;
@@ -1107,7 +1122,7 @@ function filtrarM(){
     tituloM.textContent=partesM.join(' · ');
   }
   var note=document.getElementById('note-m');
-  if(!ativo){document.getElementById('tb-m').innerHTML='<tr><td colspan="6" style="text-align:center;color:#aaa;padding:20px;font-size:12px">Aplique pelo menos um filtro para visualizar as redes municipais</td></tr>';document.getElementById('ct-m').textContent='—';note.style.display='inline';return;}
+  if(!ativo){document.getElementById('tb-m').innerHTML='<tr><td colspan="6" style="text-align:center;color:#aaa;padding:20px;font-size:12px">Aplique pelo menos um filtro para visualizar as redes municipais</td></tr>';document.getElementById('ct-m').textContent='—';var ctm3=document.getElementById('ct-m-topo');if(ctm3)ctm3.textContent='—';note.style.display='inline';return;}
   note.style.display='none';
   fM=filtrarDadosM({reg:reg,uf:uf,mun:mun,en:en,pi:pi,si:si,pri:pri});
   renderTbM(fM);
@@ -1144,8 +1159,9 @@ function destacarRegiao(tipo,reg){
 function renderEscolasResumo(){
   // Aplicar filtro de região se ativo — recalcula todos os cards com o subconjunto filtrado
   var REGS_R={'Norte':['AC','AM','AP','PA','RO','RR','TO'],'Nordeste':['AL','BA','CE','MA','PB','PE','PI','RN','SE'],'Centro-Oeste':['DF','GO','MT','MS'],'Sudeste':['ES','MG','RJ','SP'],'Sul':['PR','RS','SC']};
-  var d=filtroEscRegiao
-        ? dadosEscolas.filter(function(r){return (REGS_R[filtroEscRegiao]||[]).indexOf(r.uf)>=0;})
+  var _regiaoAtiva=filtroEscRegiao||(document.getElementById('fesc-regiao')?document.getElementById('fesc-regiao').value:'');
+  var d=_regiaoAtiva
+        ? dadosEscolas.filter(function(r){return (REGS_R[_regiaoAtiva]||[]).indexOf(r.uf)>=0;})
         : dadosEscolas;
   var total=d.length;
   var elegiveis=d.filter(function(r){return r.situacao_simec==='Enviado e Selecionado pela Rede'&&r.valor_repasse>0;}).length;
@@ -1160,17 +1176,19 @@ function renderEscolasResumo(){
   var crz3=d.filter(function(r){return r.status_pdde==='Em análise do MEC'&&!r.tem_suspensao&&r.medidor_ativo;}).length;
   var crz4=d.filter(function(r){return r.status_pdde==='Em análise do MEC'&&!r.tem_suspensao&&r.medidor_ativo&&r.pode_alocar_link;}).length;
   var temLink=d.filter(function(r){return r.valor_mensal>0;}).length;
+  var linkFnde=d.filter(function(r){return r.valor_mensal>0&&!r.tem_suspensao;}).length;
   function s(id,v){var el=document.getElementById(id);if(el)el.textContent=fmt(v);}
   s('fe-total',total);s('fe-elegiveis',elegiveis);s('fe-paf-enviado',paf);
   s('fe-com-medidor',comMed);s('fe-sem-medidor',total-comMed);
   s('fe-aptas-fnde',aptasFnde);s('fe-pendencia-fnde',total-aptasFnde);
   s('pe-alta',alta);s('pe-media',media);s('pe-baixa',baixa);
-  s('crz-paf-fnde',crz1);s('crz-paf-medidor',crz2);s('crz-paf-tudo',crz3);s('crz-todos-criterios',crz4);s('crz-tem-link',temLink);
-  // Melhoria 6: Cards financeiros admin
+  s('crz-paf-fnde',crz1);s('crz-paf-medidor',crz2);s('crz-paf-tudo',crz3);s('crz-todos-criterios',crz4);s('crz-tem-link',temLink);s('crz-link-fnde',linkFnde);
+  // Melhoria 6: Cards financeiros admin — apenas escolas "Em análise do MEC"
   if(isAdmin){
-    var totCusteio=d.reduce(function(acc,r){return acc+(parseFloat(r.total_custeio)||0);},0);
-    var totCapital=d.reduce(function(acc,r){return acc+(parseFloat(r.valor_capital)||0);},0);
-    var totLink=d.reduce(function(acc,r){return acc+(parseFloat(r.total_velocidade_contratada)||0);},0);
+    var dPaf=d.filter(function(r){return r.status_pdde==='Em análise do MEC';});
+    var totCusteio=dPaf.reduce(function(acc,r){return acc+(parseFloat(r.total_custeio)||0);},0);
+    var totCapital=dPaf.reduce(function(acc,r){return acc+(parseFloat(r.valor_capital)||0);},0);
+    var totLink=dPaf.reduce(function(acc,r){return acc+(parseFloat(r.total_velocidade_contratada)||0);},0);
     function fmtBRL(v){return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
     function sStr(id,v){var el=document.getElementById(id);if(el)el.textContent=v;}
     sStr('fin-total',fmtBRL(totCusteio+totCapital));
@@ -1225,12 +1243,35 @@ function atualizarRegiaoEscPdde(){
 }
 
 function filtrarEscolasCard(tipo){
-  atFunil='';atPrio='';
-  document.querySelectorAll('.funil-card:not(.desativado),.prio-card,.crz-card').forEach(function(el){el.classList.remove('ativo');});
-  if(['todos','elegiveis','paf_enviado','com_medidor','sem_medidor','aptas_fnde','pendencia_fnde','crz1','crz2','crz3','crz4','tem_link'].indexOf(tipo)>=0)atFunil=tipo;
-  else if(tipo==='pri_alta')atPrio='Alta';
-  else if(tipo==='pri_media')atPrio='Média';
-  else if(tipo==='pri_baixa')atPrio='Baixa';
+  var TIPOS_FUNIL=['todos','elegiveis','paf_enviado','com_medidor','sem_medidor',
+                   'aptas_fnde','pendencia_fnde','crz1','crz2','crz3','crz4','tem_link'];
+  var TIPOS_PRIO={'pri_alta':'Alta','pri_media':'Média','pri_baixa':'Baixa'};
+
+  // Toggle: se já ativo, remove; senão adiciona
+  if(TIPOS_FUNIL.indexOf(tipo)>=0){
+    if(atFunilSet.has(tipo)){atFunilSet.delete(tipo);}
+    else{atFunilSet.add(tipo);}
+  } else if(TIPOS_PRIO[tipo]){
+    var val=TIPOS_PRIO[tipo];
+    if(atPrioSet.has(val)){atPrioSet.delete(val);}
+    else{atPrioSet.add(val);}
+  }
+
+  // Sincronizar legado (primeiro valor ou vazio)
+  atFunil=atFunilSet.size>0?Array.from(atFunilSet)[0]:'';
+  atPrio=atPrioSet.size>0?Array.from(atPrioSet)[0]:'';
+
+  // Atualizar destaque visual dos cards
+  document.querySelectorAll('.funil-card:not(.desativado),.prio-card,.crz-card').forEach(function(el){
+    var t=el.getAttribute('data-card-tipo');
+    if(!t)return;
+    var isAtivo=false;
+    if(TIPOS_FUNIL.indexOf(t)>=0)isAtivo=atFunilSet.has(t);
+    else if(TIPOS_PRIO[t])isAtivo=atPrioSet.has(TIPOS_PRIO[t]);
+    el.classList.toggle('ativo',isAtivo);
+  });
+
+  renderEscolasResumo();
   filtrarEscolas();
   setTimeout(function(){document.getElementById('filtros-esc').scrollIntoView({behavior:'smooth',block:'center'});},120);
 }
@@ -1245,6 +1286,7 @@ function filtrarEscolas(){
   var cat=getMsel('drop-fesc-cat'),med=getMsel('drop-fesc-med'),fnde=getMsel('drop-fesc-fnde');
   var simec=getMsel('drop-fesc-simec');
   var eleg=getMsel('drop-fesc-eleg');
+  var art12=getMsel('drop-fesc-art12'); // filtro classificação — interseção
   var esp=getMsel('drop-fesc-esp');
   var geo=getMsel('drop-fesc-geo');
   // Melhoria 7: filtro parcela mínima link (admin)
@@ -1268,6 +1310,12 @@ function filtrarEscolas(){
     if(simec.length&&simec.indexOf(r.situacao_simec)<0)return false;
     var isEleg=(r.situacao_simec==='Enviado e Selecionado pela Rede'&&r.valor_repasse>0);
     if(eleg.length){var ev=isEleg?'sim':'nao';if(eleg.indexOf(ev)<0)return false;}
+    // Filtro Art. 12 — interseção: escola deve atender TODOS os critérios selecionados
+    if(art12.length){
+      var crit=r.criterios_art12||[];
+      var ok12=art12.every(function(c){return crit.indexOf(c)>=0;});
+      if(!ok12)return false;
+    }
     if(esp.length){
       var ok=false;
       if(esp.indexOf('indigena')>=0&&r.escola_indigena)ok=true;
@@ -1283,24 +1331,34 @@ function filtrarEscolas(){
       if(geo.indexOf('marajo')>=0&&MARAJO_IDS.indexOf(co)>=0)ok2=true;
       if(!ok2)return false;
     }
-    if(atFunil){
-      if(atFunil==='elegiveis'&&!(r.situacao_simec==='Enviado e Selecionado pela Rede'&&r.valor_repasse>0))return false;
-      if(atFunil==='paf_enviado'&&r.status_pdde!=='Em análise do MEC')return false;
-      if(atFunil==='com_medidor'&&!r.medidor_ativo)return false;
-      if(atFunil==='sem_medidor'&&r.medidor_ativo)return false;
-      if(atFunil==='aptas_fnde'&&r.tem_suspensao)return false;
-      if(atFunil==='pendencia_fnde'&&!r.tem_suspensao)return false;
-      if(atFunil==='crz1'&&!(r.status_pdde==='Em análise do MEC'&&!r.tem_suspensao))return false;
-      if(atFunil==='crz2'&&!(r.status_pdde==='Em análise do MEC'&&r.medidor_ativo))return false;
-      if(atFunil==='crz3'&&!(r.status_pdde==='Em análise do MEC'&&!r.tem_suspensao&&r.medidor_ativo))return false;
-      if(atFunil==='crz4'&&!(r.status_pdde==='Em análise do MEC'&&!r.tem_suspensao&&r.medidor_ativo&&r.pode_alocar_link))return false;
-      if(atFunil==='tem_link'&&!(r.valor_mensal>0))return false;
+    // Multisseleção funil — União dentro da categoria, Interseção entre categorias
+    if(atFunilSet.size>0){
+      var TESTES_F={
+        'todos':         function(x){return true;},
+        'elegiveis':     function(x){return x.situacao_simec==='Enviado e Selecionado pela Rede'&&x.valor_repasse>0;},
+        'paf_enviado':   function(x){return x.status_pdde==='Em análise do MEC';},
+        'com_medidor':   function(x){return x.medidor_ativo;},
+        'sem_medidor':   function(x){return !x.medidor_ativo;},
+        'aptas_fnde':    function(x){return !x.tem_suspensao;},
+        'pendencia_fnde':function(x){return x.tem_suspensao;},
+        'crz1': function(x){return x.status_pdde==='Em análise do MEC'&&!x.tem_suspensao;},
+        'crz2': function(x){return x.status_pdde==='Em análise do MEC'&&x.medidor_ativo;},
+        'crz3': function(x){return x.status_pdde==='Em análise do MEC'&&!x.tem_suspensao&&x.medidor_ativo;},
+        'crz4': function(x){return x.status_pdde==='Em análise do MEC'&&!x.tem_suspensao&&x.medidor_ativo&&x.pode_alocar_link;},
+        'tem_link':  function(x){return x.valor_mensal>0;},
+        'link_fnde': function(x){return x.valor_mensal>0&&!x.tem_suspensao;}
+      };
+      var passaFunil=false;
+      atFunilSet.forEach(function(t){if(TESTES_F[t]&&TESTES_F[t](r))passaFunil=true;});
+      if(!passaFunil)return false;
     }
-    if(atPrio&&r.prioridade_link!==atPrio)return false;
-    // Melhoria 3: filtro de região escolas
-    if(filtroEscRegiao){
+    // Multisseleção prioridade — União (Alta OU Média OU Baixa)
+    if(atPrioSet.size>0&&!atPrioSet.has(r.prioridade_link))return false;
+    // Filtro de região: card (filtroEscRegiao) OU dropdown (fescRegiao) — usam o mesmo mapa
+    var regiaoAtiva=filtroEscRegiao||fescRegiao;
+    if(regiaoAtiva){
       var REGS_ESC={'Norte':['AC','AM','AP','PA','RO','RR','TO'],'Nordeste':['AL','BA','CE','MA','PB','PE','PI','RN','SE'],'Centro-Oeste':['DF','GO','MT','MS'],'Sudeste':['ES','MG','RJ','SP'],'Sul':['PR','RS','SC']};
-      var ufsReg=REGS_ESC[filtroEscRegiao]||[];
+      var ufsReg=REGS_ESC[regiaoAtiva]||[];
       if(ufsReg.indexOf(r.uf)<0)return false;
     }
     // Melhoria 7: filtro parcela mínima link
@@ -1310,7 +1368,8 @@ function filtrarEscolas(){
     return true;
   });
 
-  var ativo=esf||uf||mun||busca||paf.length||pri.length||loc.length||cat.length||med.length||fnde.length||simec.length||eleg.length||esp.length||geo.length||atFunil||atPrio||filtroEscRegiao||parcelaMin>0||listaInepEsc.length;
+  var fescRegiao=document.getElementById('fesc-regiao')?document.getElementById('fesc-regiao').value:'';
+  var ativo=esf||uf||mun||busca||fescRegiao||paf.length||pri.length||loc.length||cat.length||med.length||fnde.length||simec.length||eleg.length||art12.length||esp.length||geo.length||atFunilSet.size>0||atPrioSet.size>0||filtroEscRegiao||parcelaMin>0||listaInepEsc.length;
   document.getElementById('btn-limpar-esc').style.display=ativo?'inline-block':'none';
   document.getElementById('btn-esc-csv').className='btn-dl'+(ativo?' ativo':'');
   document.getElementById('btn-esc-xlsx').className='btn-dl'+(ativo?' ativo':'');
@@ -1319,7 +1378,7 @@ function filtrarEscolas(){
   var ncols=isAdmin?13:11;
   if(!ativo){
     tb.innerHTML='<tr><td colspan="'+ncols+'" style="text-align:center;color:#aaa;padding:20px;font-size:12px">Use os filtros ou clique nos cards acima para visualizar as escolas</td></tr>';
-    document.getElementById('ct-esc').textContent='—';
+    document.getElementById('ct-esc').textContent='—';var ctesc2=document.getElementById('ct-esc-topo');if(ctesc2)ctesc2.textContent='—';
     note.style.display='inline';
     return;
   }
@@ -1333,7 +1392,7 @@ function filtrarEscolas(){
     return '<tr><td style="font-size:10px">'+escHtml(r.inep)+'</td><td style="font-size:10px">'+escHtml(r.nome_escola)+'</td><td>'+escHtml(r.uf)+'</td><td style="font-size:10px">'+escHtml(r.municipio)+'</td><td style="font-size:10px">'+escHtml(r.esfera)+'</td><td>'+bdgPaf(r.status_pdde)+'</td><td>'+simecBdg+'</td><td>'+elegBdg+'</td><td>'+(r.medidor_ativo?'<span class="badge bc">Ativo</span>':'<span class="badge bn">Sem</span>')+'</td><td>'+bdgFnde(r)+'</td><td>'+bdgPri(r.prioridade_link,r.prioridade_obs)+'</td>'+adminCells+'</tr>';
   }).join('');
   if(fEsc.length>MAX)tb.innerHTML+='<tr><td colspan="'+ncols+'" style="text-align:center;color:#888;padding:8px;font-size:11px">Exibindo '+MAX+' de '+fEsc.length+'. Baixe para ver todos.</td></tr>';
-  document.getElementById('ct-esc').textContent=fEsc.length;
+  document.getElementById('ct-esc').textContent=fEsc.length;var ctesc3=document.getElementById('ct-esc-topo');if(ctesc3)ctesc3.textContent=fEsc.length;
   if(typeof atualizarRegiaoEsc==='function')atualizarRegiaoEsc();
 }
 
@@ -1406,10 +1465,10 @@ function aplicarFiltroEscReg(reg){
 function limparFiltrosEsc(){
   ['fesc-esf','fesc-uf','fesc-mun'].forEach(function(id){document.getElementById(id).value='';});
   document.getElementById('fesc-busca').value='';
-  ['fesc-paf','fesc-pri','fesc-loc','fesc-cat','fesc-med','fesc-fnde','fesc-simec','fesc-eleg','fesc-esp','fesc-geo'].forEach(function(f){
+  ['fesc-art12','fesc-paf','fesc-pri','fesc-loc','fesc-cat','fesc-med','fesc-fnde','fesc-simec','fesc-eleg','fesc-esp','fesc-geo'].forEach(function(f){
     clearMsel('drop-'+f);setMselLabel('drop-'+f,'btn-'+f,MSEL_LABELS_ESC[f]||'Todos');
   });
-  atFunil='';atPrio='';filtroEscRegiao='';
+  atFunil='';atPrio='';atFunilSet=new Set();atPrioSet=new Set();filtroEscRegiao='';
   renderEscolasResumo(); // recalcular cards com Brasil completo ao limpar região
   // Reset filtro parcela para padrão 50
   var ep=document.getElementById('fesc-parcela-min');if(ep)ep.value='50';

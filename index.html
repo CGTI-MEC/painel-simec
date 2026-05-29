@@ -138,9 +138,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
 .fc-breve{font-size:11px;font-weight:700;color:#aaa;background:#f5f5f5;padding:3px 8px;border-radius:5px;display:inline-block;margin-top:4px;}
 .prio-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px;}
 .prio-card{border-radius:10px;padding:16px 18px;cursor:pointer;transition:all .15s;border:2px solid transparent;}
-.prio-card.ativo{transform:translateY(-2px);box-shadow:0 0 0 4px #fff,0 0 0 7px #003CFF!important;outline:none;}
-.prio-card:not(.ativo){opacity:0.55;transform:scale(0.97);}
-.prio-cards:not(:has(.ativo)) .prio-card{opacity:1;transform:none;}
+/* Cards prioridade: ativo = cor forte + borda branca; inativo = opaco */
+.prio-card.ativo{box-shadow:0 0 0 4px rgba(255,255,255,0.9),0 0 0 7px rgba(0,0,0,0.4)!important;transform:translateY(-2px) scale(1.02);}
+.prio-cards:has(.ativo) .prio-card:not(.ativo){opacity:0.45;filter:saturate(0.5);transform:scale(0.97);}
 .prio-alta{background:linear-gradient(135deg,#c0392b,#e74c3c);color:#fff;}
 .prio-media{background:linear-gradient(135deg,#c98000,#f39c12);color:#fff;}
 .prio-baixa{background:linear-gradient(135deg,#1a8f3f,#27ae60);color:#fff;}
@@ -486,7 +486,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
     <div class="msel-wrap"><div class="msel-btn" id="btn-fesc-art12" onclick="toggleMsel('drop-fesc-art12')">Classificação: Todas</div><div class="msel-drop" id="drop-fesc-art12" style="width:260px"><label class="msel-item" title="Art.12 I — Não contemplada por outra política federal"><input type="checkbox" value="I" onchange="mselChangeEsc('fesc-art12')"> I — Não contemplada</label><label class="msel-item" title="Art.12 II — Alocou recurso para link no PAF"><input type="checkbox" value="II" onchange="mselChangeEsc('fesc-art12')"> II — Alocou recurso p/ link</label><label class="msel-item" title="Art.12 III — Contemplada no exercício anterior (PIEC 2025)"><input type="checkbox" value="III" onchange="mselChangeEsc('fesc-art12')"> III — Contemplada ano anterior</label><label class="msel-item" title="Art.12 IV — Rede concluiu Etapa 1 ENEC no SIMEC"><input type="checkbox" value="IV" onchange="mselChangeEsc('fesc-art12')"> IV — Rede concluiu Etapa 1</label><label class="msel-item" title="Art.12 V — Medidor ativo"><input type="checkbox" value="V" onchange="mselChangeEsc('fesc-art12')"> V — Medidor ativo</label><div style="font-size:9px;color:#888;padding:4px 8px;border-top:1px solid #eee;margin-top:4px">⚠️ Interseção: mostra escolas que atendem TODOS os critérios selecionados</div></div></div>
     <div style="display:flex;align-items:center;gap:6px;flex:1;">
       <label style="font-size:10px;color:#003CFF;font-weight:700;white-space:nowrap">Parcela mín. link R$</label>
-      <input type="number" id="fesc-parcela-min" value="50" min="0" step="1" style="width:80px;font-size:11px;padding:5px 6px;border:.5px solid #ccc;border-radius:6px;" oninput="filtrarEscolas()" title="Filtrar escolas com valor mensal do link ≥ este valor">
+      <input type="number" id="fesc-parcela-min" value="0" min="0" step="1" style="width:80px;font-size:11px;padding:5px 6px;border:.5px solid #ccc;border-radius:6px;" oninput="filtrarEscolas()" title="Filtrar escolas com valor mensal do link ≥ este valor">
     </div>
     <div style="flex:1">
       <input id="fesc-inep-lista" placeholder="Colar INEPs ou Cód. IBGE (um por linha ou vírgula)..." style="width:100%;font-size:11px;padding:5px 8px;border:.5px solid #ccc;border-radius:6px;" oninput="filtrarEscolas()" title="Cole INEPs (8 dígitos) ou códigos IBGE (7 dígitos). Separe por vírgula, espaço ou quebra de linha.">
@@ -1304,6 +1304,8 @@ function filtrarEscolas(){
   if(isAdmin){var pEl=document.getElementById('fesc-parcela-min');if(pEl)parcelaMin=parseFloat(pEl.value)||0;}
   // Melhoria 5: lista INEP (admin)
   var listaInepEsc=[];
+  // Filtro região dropdown — declarado aqui para estar disponível dentro do loop
+  var fescRegiao=document.getElementById('fesc-regiao')?document.getElementById('fesc-regiao').value:'';
   if(isAdmin){var liEl=document.getElementById('fesc-inep-lista');if(liEl&&liEl.value.trim()){listaInepEsc=parsarListaCodigos(liEl.value).filter(function(c){return c.length===8;});var ec=document.getElementById('fesc-inep-count');if(ec)ec.textContent=listaInepEsc.length?listaInepEsc.length+' INEP(s) reconhecido(s)':'';}}
 
   fEsc=dadosEscolas.filter(function(r){
@@ -1372,15 +1374,13 @@ function filtrarEscolas(){
       if(ufsReg.indexOf(r.uf)<0)return false;
     }
     // Melhoria 7: filtro parcela mínima link — só aplica se diferente do padrão 50
-    if(parcelaMin>0&&parcelaMin!==50){var vm=parseFloat(r.valor_mensal||0);if(vm<parcelaMin)return false;}
+    if(parcelaMin>0){var vm=parseFloat(r.valor_mensal||0);if(vm<parcelaMin)return false;}
     // Melhoria 5: filtro lista INEP
     if(listaInepEsc.length&&listaInepEsc.indexOf(r.inep)<0)return false;
     return true;
   });
 
-  var fescRegiao=document.getElementById('fesc-regiao')?document.getElementById('fesc-regiao').value:'';
-  var PARCELA_PADRAO=50;
-  var parcelaAtiva=isAdmin&&parcelaMin>0&&parcelaMin!==PARCELA_PADRAO;
+  var parcelaAtiva=isAdmin&&parcelaMin>0;
   var ativo=esf||uf||mun||busca||fescRegiao||paf.length||pri.length||loc.length||cat.length||med.length||fnde.length||simec.length||eleg.length||art12.length||esp.length||geo.length||atFunilSet.size>0||atPrioSet.size>0||filtroEscRegiao||parcelaAtiva||listaInepEsc.length;
   document.getElementById('btn-limpar-esc').style.display=ativo?'inline-block':'none';
   document.getElementById('btn-esc-csv').className='btn-dl'+(ativo?' ativo':'');
@@ -1483,7 +1483,7 @@ function limparFiltrosEsc(){
   atFunil='';atPrio='';atFunilSet=new Set();atPrioSet=new Set();filtroEscRegiao='';
   renderEscolasResumo(); // recalcular cards com Brasil completo ao limpar região
   // Reset filtro parcela para padrão 50
-  var ep=document.getElementById('fesc-parcela-min');if(ep)ep.value='50';
+  var ep=document.getElementById('fesc-parcela-min');if(ep)ep.value='0';
   // Limpar lista INEP
   var el=document.getElementById('fesc-inep-lista');if(el)el.value='';
   var ec=document.getElementById('fesc-inep-count');if(ec)ec.textContent='';

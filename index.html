@@ -706,9 +706,10 @@ function filtrarEscRegiao(reg){
   // Navegar para a aba Escolas
   var btnEscolas=document.querySelector('.tab[onclick*="escolas"]');
   if(btnEscolas)showTab('escolas',btnEscolas);
-  // Se dados já carregados: filtrar e rolar para os filtros
+  // Se dados já carregados: recalcular cards E filtrar tabela
   if(dadosEscolas.length){
-    filtrarEscolas();
+    renderEscolasResumo();  // recalcula funil, requisitos, cruzamentos, prioridade
+    filtrarEscolas();       // filtra a tabela
     setTimeout(function(){
       var el=document.getElementById('filtros-esc');
       if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
@@ -723,6 +724,7 @@ function filtrarEscRegiao(reg){
       tentativas++;
       if(dadosEscolas.length){
         clearInterval(poll);
+        renderEscolasResumo();
         filtrarEscolas();
         setTimeout(function(){
           var el=document.getElementById('filtros-esc');
@@ -1140,7 +1142,12 @@ function destacarRegiao(tipo,reg){
 
 // ===== ESCOLAS =====
 function renderEscolasResumo(){
-  var d=dadosEscolas,total=d.length;
+  // Aplicar filtro de região se ativo — recalcula todos os cards com o subconjunto filtrado
+  var REGS_R={'Norte':['AC','AM','AP','PA','RO','RR','TO'],'Nordeste':['AL','BA','CE','MA','PB','PE','PI','RN','SE'],'Centro-Oeste':['DF','GO','MT','MS'],'Sudeste':['ES','MG','RJ','SP'],'Sul':['PR','RS','SC']};
+  var d=filtroEscRegiao
+        ? dadosEscolas.filter(function(r){return (REGS_R[filtroEscRegiao]||[]).indexOf(r.uf)>=0;})
+        : dadosEscolas;
+  var total=d.length;
   var elegiveis=d.filter(function(r){return r.situacao_simec==='Enviado e Selecionado pela Rede'&&r.valor_repasse>0;}).length;
   var paf=d.filter(function(r){return r.status_pdde==='Em análise do MEC';}).length;
   var comMed=d.filter(function(r){return r.medidor_ativo;}).length;
@@ -1403,6 +1410,7 @@ function limparFiltrosEsc(){
     clearMsel('drop-'+f);setMselLabel('drop-'+f,'btn-'+f,MSEL_LABELS_ESC[f]||'Todos');
   });
   atFunil='';atPrio='';filtroEscRegiao='';
+  renderEscolasResumo(); // recalcular cards com Brasil completo ao limpar região
   // Reset filtro parcela para padrão 50
   var ep=document.getElementById('fesc-parcela-min');if(ep)ep.value='50';
   // Limpar lista INEP

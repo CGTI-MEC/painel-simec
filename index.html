@@ -139,8 +139,10 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
 .prio-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px;}
 .prio-card{border-radius:10px;padding:16px 18px;cursor:pointer;transition:all .15s;border:2px solid transparent;}
 /* Cards prioridade: ativo = cor forte + borda branca; inativo = opaco */
-.prio-card.ativo{box-shadow:0 0 0 4px rgba(255,255,255,0.9),0 0 0 7px rgba(0,0,0,0.4)!important;transform:translateY(-2px) scale(1.02);}
-.prio-cards:has(.ativo) .prio-card:not(.ativo){opacity:0.45;filter:saturate(0.5);transform:scale(0.97);}
+
+.prio-cards.tem-ativo .prio-card:not(.ativo){opacity:0.45;filter:saturate(0.5);transform:scale(0.97);}
+.funil-card.ativo,.crz-card.ativo{border:2px solid #003CFF!important;box-shadow:0 2px 14px rgba(0,60,255,.2);background:#f0f4ff;}
+.funil-card:not(.desativado).dim,.crz-card.dim{opacity:0.45;}
 .prio-alta{background:linear-gradient(135deg,#c0392b,#e74c3c);color:#fff;}
 .prio-media{background:linear-gradient(135deg,#c98000,#f39c12);color:#fff;}
 .prio-baixa{background:linear-gradient(135deg,#1a8f3f,#27ae60);color:#fff;}
@@ -151,11 +153,10 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;font-size:13px;}
 .meta-item{font-size:10px;color:#888;}
 .meta-item strong{color:#333;font-weight:700;}
 .cruzamentos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;}
-.funil-card.ativo,.prio-card.ativo,.crz-card.ativo{
-  border:2px solid #003CFF!important;
-  box-shadow:0 2px 14px rgba(0,60,255,.18);
-  background:#f0f4ff;
-}
+/* Funil e cruzamentos ativos: borda azul + fundo azul claro */
+.funil-card.ativo,.crz-card.ativo{border:2px solid #003CFF!important;box-shadow:0 2px 14px rgba(0,60,255,.18);background:#f0f4ff;}
+/* Cards de prioridade ativos: apenas anel branco + sombra, SEM alterar o fundo colorido */
+.prio-card.ativo{border:3px solid #fff!important;box-shadow:0 0 0 4px rgba(255,255,255,0.9),0 0 0 7px rgba(0,0,0,0.35)!important;transform:translateY(-2px) scale(1.02);}
 .funil-card.ativo .funil-num,.prio-card.ativo .pe-num{opacity:1;}
 .crz-card{background:#fff;border-radius:10px;padding:12px 14px;border:.5px solid #e0e0e0;cursor:pointer;transition:all .15s;}
 .crz-card:hover{border-color:#003CFF;}
@@ -1279,6 +1280,20 @@ function filtrarEscolasCard(tipo){
     if(TIPOS_FUNIL.indexOf(t)>=0)isAtivo=atFunilSet.has(t);
     else if(TIPOS_PRIO[t])isAtivo=atPrioSet.has(TIPOS_PRIO[t]);
     el.classList.toggle('ativo',isAtivo);
+    el.classList.remove('dim');
+  });
+  // Gerenciar dim nos não-ativos (fallback para browsers sem :has())
+  var prioCont=document.querySelector('.prio-cards');
+  if(prioCont){
+    var temAtivoPrio=atPrioSet.size>0;
+    prioCont.classList.toggle('tem-ativo',temAtivoPrio);
+    prioCont.querySelectorAll('.prio-card').forEach(function(el){
+      el.classList.toggle('dim',temAtivoPrio&&!el.classList.contains('ativo'));
+    });
+  }
+  var temAtivoFunil=atFunilSet.size>0;
+  document.querySelectorAll('.funil-card:not(.desativado),.crz-card').forEach(function(el){
+    el.classList.toggle('dim',temAtivoFunil&&!el.classList.contains('ativo'));
   });
 
   renderEscolasResumo();
@@ -1481,6 +1496,10 @@ function limparFiltrosEsc(){
     clearMsel('drop-'+f);setMselLabel('drop-'+f,'btn-'+f,MSEL_LABELS_ESC[f]||'Todos');
   });
   atFunil='';atPrio='';atFunilSet=new Set();atPrioSet=new Set();filtroEscRegiao='';
+  var freg=document.getElementById('fesc-regiao');if(freg)freg.value='';
+  // Remover dim e tem-ativo de todos os cards
+  document.querySelectorAll('.prio-card,.funil-card,.crz-card').forEach(function(el){el.classList.remove('ativo','dim');});
+  var pc=document.querySelector('.prio-cards');if(pc)pc.classList.remove('tem-ativo');
   renderEscolasResumo(); // recalcular cards com Brasil completo ao limpar região
   // Reset filtro parcela para padrão 50
   var ep=document.getElementById('fesc-parcela-min');if(ep)ep.value='0';

@@ -1167,13 +1167,19 @@ function destacarRegiao(tipo,reg){
 }
 
 // ===== ESCOLAS =====
-function renderEscolasResumo(){
-  // Aplicar filtro de região se ativo — recalcula todos os cards com o subconjunto filtrado
-  var REGS_R={'Norte':['AC','AM','AP','PA','RO','RR','TO'],'Nordeste':['AL','BA','CE','MA','PB','PE','PI','RN','SE'],'Centro-Oeste':['DF','GO','MT','MS'],'Sudeste':['ES','MG','RJ','SP'],'Sul':['PR','RS','SC']};
-  var _regiaoAtiva=filtroEscRegiao||(document.getElementById('fesc-regiao')?document.getElementById('fesc-regiao').value:'');
-  var d=_regiaoAtiva
+function renderEscolasResumo(subconjunto){
+  // Se recebeu subconjunto filtrado (de filtrarEscolas), usa ele
+  // Senão aplica filtro de região sobre dadosEscolas
+  var d;
+  if(subconjunto && subconjunto.length !== undefined){
+    d = subconjunto;
+  } else {
+    var REGS_R={'Norte':['AC','AM','AP','PA','RO','RR','TO'],'Nordeste':['AL','BA','CE','MA','PB','PE','PI','RN','SE'],'Centro-Oeste':['DF','GO','MT','MS'],'Sudeste':['ES','MG','RJ','SP'],'Sul':['PR','RS','SC']};
+    var _regiaoAtiva=filtroEscRegiao||(document.getElementById('fesc-regiao')?document.getElementById('fesc-regiao').value:'');
+    d=_regiaoAtiva
         ? dadosEscolas.filter(function(r){return (REGS_R[_regiaoAtiva]||[]).indexOf(r.uf)>=0;})
         : dadosEscolas;
+  }
   var total=d.length;
   var elegiveis=d.filter(function(r){return r.situacao_simec==='Enviado e Selecionado pela Rede'&&r.valor_repasse>0;}).length;
   var paf=d.filter(function(r){return r.status_pdde==='Em análise do MEC';}).length;
@@ -1296,7 +1302,7 @@ function filtrarEscolasCard(tipo){
     el.classList.toggle('dim',temAtivoFunil&&!el.classList.contains('ativo'));
   });
 
-  renderEscolasResumo();
+  // filtrarEscolas já chama renderEscolasResumo(fEsc) internamente
   filtrarEscolas();
   setTimeout(function(){document.getElementById('filtros-esc').scrollIntoView({behavior:'smooth',block:'center'});},120);
 }
@@ -1419,7 +1425,15 @@ function filtrarEscolas(){
     return '<tr><td style="font-size:10px">'+escHtml(r.inep)+'</td><td style="font-size:10px">'+escHtml(r.nome_escola)+'</td><td>'+escHtml(r.uf)+'</td><td style="font-size:10px">'+escHtml(r.municipio)+'</td><td style="font-size:10px">'+escHtml(r.esfera)+'</td><td>'+bdgPaf(r.status_pdde)+'</td><td>'+simecBdg+'</td><td>'+elegBdg+'</td><td>'+(r.medidor_ativo?'<span class="badge bc">Ativo</span>':'<span class="badge bn">Sem</span>')+'</td><td>'+bdgFnde(r)+'</td><td>'+bdgPri(r.prioridade_link,r.prioridade_obs)+'</td>'+adminCells+'</tr>';
   }).join('');
   if(fEsc.length>MAX)tb.innerHTML+='<tr><td colspan="'+ncols+'" style="text-align:center;color:#888;padding:8px;font-size:11px">Exibindo '+MAX+' de '+fEsc.length+'. Baixe para ver todos.</td></tr>';
-  document.getElementById('ct-esc').textContent=fEsc.length;var ctesc3=document.getElementById('ct-esc-topo');if(ctesc3)ctesc3.textContent=fEsc.length;
+  // Contar municípios e UFs distintos
+  var munsDistintos=new Set(fEsc.map(function(r){return r.uf+'|'+r.municipio;})).size;
+  var ufsDistintas=new Set(fEsc.map(function(r){return r.uf;})).size;
+  var ctTxt=fEsc.length.toLocaleString('pt-BR');
+  var ctExtra=' · '+munsDistintos.toLocaleString('pt-BR')+' municípios · '+ufsDistintas+' UFs';
+  document.getElementById('ct-esc').textContent=ctTxt+ctExtra;
+  var ctesc3=document.getElementById('ct-esc-topo');if(ctesc3)ctesc3.textContent=ctTxt+ctExtra;
+  // Recalcular todos os cards com o subconjunto filtrado
+  renderEscolasResumo(fEsc);
   if(typeof atualizarRegiaoEsc==='function')atualizarRegiaoEsc();
 }
 

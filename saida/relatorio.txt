@@ -1,6 +1,6 @@
 ##CONFIG
 MENSAGEM: Atenção redes! Verifiquem os prazos abaixo e concluam as etapas no SIMEC.
 PRAZO_ENEC: 02/06/2026
-PRAZO_PIEC: 06/05/2026
-PRAZO_PDDE: 02/06/2026
+PRAZO_PIEC: 15/06/2026
+PRAZO_PDDE: 18/06/2026
 ##FIMCONFIG

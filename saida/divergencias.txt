@@ -1,7 +1,13 @@
-Verificação de divergências — 15/06/2026 às 12:43
-Total redes verificadas: 5598 (Municipal: 5571 | Estadual: 27) | Sem match: 30 | Divergências: 0
+Verificação de divergências — 16/06/2026 às 08:58
+Total redes verificadas: 5598 (Municipal: 5571 | Estadual: 27) | Sem match: 30 | Divergências: 3
 
 NOTA: O status da REDE (Workflow) e a situação das ESCOLAS são informações independentes.
       Uma rede pode ter enviado (Workflow = Em análise pelo MEC) com escolas selecionadas E não selecionadas — isso é normal.
 
-✅ Nenhuma divergência encontrada entre Etapa 2 e PDDE Interativo.
+⚠️  3 divergência(s) encontrada(s):
+
+Município                           Esfera       Workflow                  Problema
+------------------------------------------------------------------------------------------------------------------------
+Santa Mariana                       Municipal    Não iniciado              Rede não iniciou mas 6 escolas aparecem como selecionadas no PDDE
+Mampituba                           Municipal    Não iniciado              Rede não iniciou mas 3 escolas aparecem como selecionadas no PDDE
+São José do Inhacorá                Municipal    Não iniciado              Rede não iniciou mas 4 escolas aparecem como selecionadas no PDDE

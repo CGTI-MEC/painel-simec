@@ -1,4 +1,4 @@
-Verificação de divergências — 17/06/2026 às 00:30
+Verificação de divergências — 17/06/2026 às 10:46
 Total redes verificadas: 5598 (Municipal: 5571 | Estadual: 27) | Sem match: 30 | Divergências: 0
 
 NOTA: O status da REDE (Workflow) e a situação das ESCOLAS são informações independentes.
